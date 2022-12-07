@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 041142fb8a6a1a645a7ffa6aecc7e14b
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - HYWenHei
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 8a11729a2437ac0429dde19cb649515f, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
