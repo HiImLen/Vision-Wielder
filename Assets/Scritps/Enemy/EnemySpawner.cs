@@ -7,23 +7,19 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private GameObject[] enemyPrefabs;
     private GameObject player;
-    private GameObject grassTilemap;
-    [SerializeField] private List<GameObject> enemyList;
+    [SerializeField] public List<GameObject> enemyList;
     public float spawnRadius = 15f;
     public float secondsBetweenSpawn = 0.2f;
     private float elapsedTime = 0.0f;
-    Bounds bounds;
 
     void Awake()
     {
         enemyList = new List<GameObject>();
-        player = GameObject.FindWithTag("Player");
-        grassTilemap = GameObject.FindWithTag("GrassTilemap");
     }
 
     void Start()
     {
-        bounds = grassTilemap.GetComponent<Tilemap>().localBounds;
+        player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
@@ -40,19 +36,10 @@ public class EnemySpawner : MonoBehaviour
     void SpawnMobs()
     {
         Vector3 spawnPosition;
-        // Spawn the enemy at a random position on spawn radius within the bounds of the tilemap
-        do {
-            spawnPosition = player.transform.position + Random.onUnitSphere * spawnRadius;
-        } while (Vector2.Distance(spawnPosition, player.transform.position) < spawnRadius || 
-        spawnPosition.x < bounds.min.x + 1 || 
-        spawnPosition.y < bounds.min.y + 1 || 
-        spawnPosition.x > bounds.max.x - 1 || 
-        spawnPosition.y > bounds.max.y - 1);
-
+        spawnPosition = player.transform.position + Random.onUnitSphere * spawnRadius;
         int index = Random.Range(0, enemyPrefabs.Length);
-        GameObject enemy = Instantiate(enemyPrefabs[index], spawnPosition, Quaternion.identity);
+        GameObject enemy = Instantiate(enemyPrefabs[index], spawnPosition, Quaternion.identity, transform);
         enemy.GetComponent<EnemyBehavior>().enemySpawner = this; // Set the enemySpawner of the enemy
-        enemy.transform.parent = this.transform; // Set the parent of the enemy to the spawner
         enemy.tag = "Enemy";
         enemyList.Add(enemy);
     }
@@ -61,5 +48,22 @@ public class EnemySpawner : MonoBehaviour
     {
         enemyList.Remove(enemy);
         Destroy(enemy);
+    }
+
+    public GameObject GetClosestEnemy(Vector3 position)
+    {
+        if (enemyList.Count == 0) return null;
+        GameObject closestEnemy = enemyList[0];
+        float closestDistance = Vector3.Distance(position, closestEnemy.transform.position);
+        for (int i = 1; i < enemyList.Count; i++)
+        {
+            float distance = Vector3.Distance(position, enemyList[i].transform.position);
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+                closestEnemy = enemyList[i];
+            }
+        }
+        return closestEnemy;
     }
 }

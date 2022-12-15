@@ -9,8 +9,9 @@ public class PlayerBehavior : MonoBehaviour, IDamageable
     public int damage { get {return _damage;} set {damage = _damage;} }
     public int maxHealth { get {return _maxHealth;} set {maxHealth = _maxHealth;} }
     public int currentHealth { get; set; }
-    [SerializeField] private float internalHitCD = 2f;
+    [SerializeField] public float internalHitCD = 2f;
     private HealthBar healthBar;
+
 
     void Start()
     {

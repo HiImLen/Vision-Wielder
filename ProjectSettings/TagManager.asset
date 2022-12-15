@@ -9,6 +9,7 @@ TagManager:
   - Wall
   - GrassTilemap
   - HealthText
+  - EnemySpawner
   layers:
   - Default
   - TransparentFX
@@ -17,9 +18,9 @@ TagManager:
   - Water
   - UI
   - 
-  - 
-  - 
-  - 
+  - Enemy
+  - Player
+  - Projectile
   - 
   - 
   - 
