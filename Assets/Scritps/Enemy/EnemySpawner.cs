@@ -149,7 +149,7 @@ public class EnemySpawner : MonoBehaviour
         float closestDistance = Vector3.Distance(position, closestEnemy.transform.position);
         for (int i = 1; i < enemyList.Count; i++)
         {
-            float distance = Vector3.Distance(position, enemyList[i].transform.position);
+            float distance = Vector2.Distance(position, enemyList[i].transform.position);
             if (distance < closestDistance)
             {
                 closestDistance = distance;

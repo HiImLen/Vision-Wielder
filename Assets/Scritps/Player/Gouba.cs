@@ -12,8 +12,6 @@ public class Gouba : MonoBehaviour
     private EnemySpawner enemySpawner;
     private float elapsedTime = 0.0f;
 
-
-
     Rigidbody2D rb;
     SpriteRenderer spriteRenderer;
     Vector2 direction = new Vector2(1, 0);
@@ -42,11 +40,11 @@ public class Gouba : MonoBehaviour
             skillAttack();
         }
 
-        if(attackCount == 5){
+        if(attackCount == 5) {
             Destroy(gameObject, 1f);
         }
 
-        Debug.Log(Time.deltaTime);
+        //Debug.Log(Time.deltaTime);
     }
 
     private void FixedUpdate()
@@ -72,6 +70,7 @@ public class Gouba : MonoBehaviour
         
         // get closest enemy
         GameObject closestEnemy = enemySpawner.GetClosestEnemy(transform.position);
+        //Debug.Log("CLOSEST ENEMY: " + closestEnemy.transform.position);
 
         GameObject goubaProjectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
         goubaProjectile.GetComponent<GoubaProjectileScript>().Launch(closestEnemy.transform.position);

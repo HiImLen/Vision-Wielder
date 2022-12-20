@@ -72,15 +72,10 @@ public class BowProjectileScript : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Enemy")
+        IDamageable damageable = other.gameObject.GetComponent<IDamageable>();
+        if (damageable != null)
         {
-            //other.gameObject.GetComponent<Rigidbody2D>().AddForce((other.gameObject.transform.position - transform.position).normalized * 0.05f);
-            StartCoroutine(other.gameObject.GetComponent<EnemyBehavior>().Damaged(Mathf.RoundToInt(playerBehavior.damage * playerBehavior.normalAttackMultiplier), null));
-        }
-        if (other.gameObject.tag == "Boss")
-        {
-            //other.gameObject.GetComponent<Rigidbody2D>().AddForce((other.gameObject.transform.position - transform.position).normalized * 0.05f);
-            StartCoroutine(other.gameObject.GetComponent<BossBehavior>().Damaged(Mathf.RoundToInt(playerBehavior.damage * playerBehavior.normalAttackMultiplier), null));
+            StartCoroutine(damageable.Damaged(playerBehavior.damage, null));
         }
     }
 }

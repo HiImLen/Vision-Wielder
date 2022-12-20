@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8637279934678583054}
   - component: {fileID: -489000654397142996}
   - component: {fileID: 6071438804150040201}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fire_III_Flame_C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 0.8, y: 0.48}
     newSize: {x: 0.8, y: 0.48}
     adaptiveTilingThreshold: 0.5
@@ -168,11 +168,8 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.028738365, y: 0.18553635}
-      - {x: -0.34808695, y: 0.03686193}
-      - {x: -0.26999998, y: -0.21}
-      - {x: -0.28, y: -0.22999999}
-      - {x: -0.28, y: -0.24}
-      - {x: 0.32, y: -0.24}
-      - {x: 0.32, y: -0.19}
-      - {x: 0.38491145, y: 0.04480078}
+    - - {x: 0.3, y: 0.3}
+      - {x: 0.02, y: 0.4}
+      - {x: -0.26, y: 0.3}
+      - {x: -0.26, y: 0}
+      - {x: 0.3, y: 0}

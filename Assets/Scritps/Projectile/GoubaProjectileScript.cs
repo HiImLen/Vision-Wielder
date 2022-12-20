@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GoubaProjectileScript : MonoBehaviour
 {
-    [SerializeField] public float speed = 200f;
     [SerializeField] private float lifeTime = 1.5f;
     private PlayerBehavior playerBehavior;
     private Rigidbody2D rigidbody2d;
@@ -18,7 +17,6 @@ public class GoubaProjectileScript : MonoBehaviour
     private void Start()
     {
         playerBehavior = GameObject.FindWithTag("Player").GetComponent<PlayerBehavior>();
-        Destroy(gameObject, lifeTime);
     }
 
     private void Update()
@@ -29,21 +27,27 @@ public class GoubaProjectileScript : MonoBehaviour
     public void Launch(Vector2 targetPosition)
     {
         //fire projectile once with no tracking
-        // rigidbody2d.AddForce((targetPosition - (Vector2)transform.position).normalized * speed);
+        //rigidbody2d.AddForce((targetPosition - (Vector2)transform.position).normalized * 200f);
 
         // rotate the projectile to face the target
         Vector2 difference = targetPosition - (Vector2)transform.position;
         float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0f, 0f, rotationZ - 180f);
+        transform.rotation = Quaternion.Euler(0f, 0f, rotationZ - 90f);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Enemy")
+        // Debug.Log("Gouba Hit Enemy!");
+        //other.gameObject.GetComponent<Rigidbody2D>().AddForce((other.gameObject.transform.position - transform.position).normalized * 0.05f);
+        IDamageable damageable = other.gameObject.GetComponent<IDamageable>();
+        if (damageable != null)
         {
-            // Debug.Log("Gouba Hit Enemy!");
-            //other.gameObject.GetComponent<Rigidbody2D>().AddForce((other.gameObject.transform.position - transform.position).normalized * 0.05f);
-            StartCoroutine(other.gameObject.GetComponent<EnemyBehavior>().Damaged(playerBehavior.damage, null));
+            StartCoroutine(damageable.Damaged(playerBehavior.damage, null));
         }
+    }
+
+    void OnObjectDestroy()
+    {
+        Destroy(gameObject);
     }
 }

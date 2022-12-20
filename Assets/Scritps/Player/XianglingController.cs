@@ -40,17 +40,9 @@ public class XianglingController : MonoBehaviour
         if (elapsedTime >= 1 / attackSpeed)
         {
             elapsedTime = 0.0f;
-            // Invoke("NormalAttack", 0.1f);
+            //Invoke("NormalAttack", 0.1f);
         }
-        // press E to spawn Gouba
-        if (Keyboard.current.eKey.wasPressedThisFrame)
-        {
-            if (skillCD == skillCDTimer){
-                GameObject gouba = Instantiate(goubaPrefab, transform.position, Quaternion.identity);
-                isCD = true;
-            }
-            // gouba.GetComponent<Gouba>().Launch(direction);
-        }
+
         if(isCD){
             skillCD -= Time.deltaTime;
             if(skillCD <= 0){
@@ -76,6 +68,15 @@ public class XianglingController : MonoBehaviour
     void OnMove(InputValue value)
     {
         movementInput = value.Get<Vector2>();
+    }
+
+    void OnSkill()
+    {
+        if (skillCD == skillCDTimer){
+            GameObject gouba = Instantiate(goubaPrefab, transform.position, Quaternion.identity);
+            isCD = true;
+        }
+        //gouba.GetComponent<Gouba>().Launch(direction);
     }
 
     private void NormalAttack()
