@@ -8,6 +8,9 @@ public class XianglingController : MonoBehaviour
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private float attackSpeed = 1f;
     [SerializeField] private int projectileCount = 1;
+    [SerializeField] private GameObject goubaPrefab;
+    [SerializeField] private float skillCDTimer = 12.0f; // skill cooldown timer
+
     private EnemySpawner enemySpawner;
     private float elapsedTime = 0.0f;
     public float moveSpeed = 5f;
@@ -16,6 +19,9 @@ public class XianglingController : MonoBehaviour
     SpriteRenderer spriteRenderer;
     Vector2 direction = new Vector2(1, 0);
 
+    float skillCD; // skill cooldown
+    bool isCD = false;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -23,6 +29,7 @@ public class XianglingController : MonoBehaviour
     }
     void Start()
     {
+        skillCD = skillCDTimer;
         enemySpawner = GameObject.FindWithTag("EnemySpawner").GetComponent<EnemySpawner>();
     }
 
@@ -30,10 +37,26 @@ public class XianglingController : MonoBehaviour
     void Update()
     {
         elapsedTime += Time.deltaTime;
-        if (elapsedTime >= 1/attackSpeed)
+        if (elapsedTime >= 1 / attackSpeed)
         {
             elapsedTime = 0.0f;
-            Invoke("NormalAttack", 0.1f);
+            // Invoke("NormalAttack", 0.1f);
+        }
+        // press E to spawn Gouba
+        if (Keyboard.current.eKey.wasPressedThisFrame)
+        {
+            if (skillCD == skillCDTimer){
+                GameObject gouba = Instantiate(goubaPrefab, transform.position, Quaternion.identity);
+                isCD = true;
+            }
+            // gouba.GetComponent<Gouba>().Launch(direction);
+        }
+        if(isCD){
+            skillCD -= Time.deltaTime;
+            if(skillCD <= 0){
+                skillCD = skillCDTimer;
+                isCD = false;
+            }
         }
     }
 
