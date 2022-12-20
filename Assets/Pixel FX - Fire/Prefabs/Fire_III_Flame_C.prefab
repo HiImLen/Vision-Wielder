@@ -120,7 +120,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbb521154ba68c24ab86204fc7f80c4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 200
   lifeTime: 1.5
 --- !u!50 &-489000654397142996
 Rigidbody2D:
@@ -168,8 +167,8 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.3, y: 0.3}
-      - {x: 0.02, y: 0.4}
-      - {x: -0.26, y: 0.3}
-      - {x: -0.26, y: 0}
-      - {x: 0.3, y: 0}
+    - - {x: 0.4, y: 0.3}
+      - {x: 0, y: 0.5}
+      - {x: -0.4, y: 0.3}
+      - {x: -0.4, y: 0}
+      - {x: 0.4, y: 0}
