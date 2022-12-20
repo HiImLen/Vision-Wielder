@@ -102,9 +102,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00cc2a8055b1d0a419a61cc651223a98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitParticlePrefab: {fileID: 8485481290728192229, guid: 4aa45d356ccb20b409d03e2a4a3da6d7, type: 3}
   _maxHealth: 1000
-  _damage: 25
+  _damage: 50
   internalHitCD: 0.1
+  normalAttackMultiplier: 1.22
 --- !u!114 &1947986479057676234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,9 +150,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 8239885663455087720, guid: c025de370c616d046bf02b4a3d47d870, type: 3}
-  attackSpeed: 1
+  attackSpeed: 1.5
   projectileCount: 1
-  moveSpeed: 5
+  moveSpeed: 3
 --- !u!50 &5293271659699846863
 Rigidbody2D:
   serializedVersion: 4

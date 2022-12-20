@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8485481290728192227}
   - component: {fileID: 8485481290728192226}
   m_Layer: 0
-  m_Name: BloodParticle
+  m_Name: HitParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 8485481290728192229}
   m_LocalRotation: {x: -0.8663743, y: 0, z: 0, w: 0.4993953}
   m_LocalPosition: {x: 0.2628078, y: 0.5227688, z: 0.5062884}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -47,7 +47,7 @@ ParticleSystem:
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  emitterVelocityMode: 1
+  emitterVelocityMode: 0
   looping: 0
   prewarm: 0
   playOnAwake: 1
@@ -1540,7 +1540,7 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: -1571200187, guid: d5301c534a857da4e8ae2e623334baa9, type: 3}
+    - sprite: {fileID: 1573021446, guid: 87edba53b0b0ee041a4f008286b59194, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
@@ -4839,7 +4839,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0

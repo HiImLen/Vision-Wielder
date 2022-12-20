@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6519074612387563599}
   - component: {fileID: 4682392571994836369}
   - component: {fileID: 8750969760664190320}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Yoimiya
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: ae99a3dc702894f4d9ca4728807c4549, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -109,7 +109,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &5235692639657811061
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -138,6 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00cc2a8055b1d0a419a61cc651223a98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitParticlePrefab: {fileID: 8485481290728192229, guid: 4aa45d356ccb20b409d03e2a4a3da6d7, type: 3}
   _maxHealth: 1000
   _damage: 50
   internalHitCD: 0.1

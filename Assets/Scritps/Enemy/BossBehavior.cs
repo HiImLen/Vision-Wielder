@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-[System.Serializable]
-public class EnemyBehavior : MonoBehaviour, IDamageable
+public class BossBehavior : MonoBehaviour, IDamageable
 {
     [SerializeField] private int _maxHealth = 50;
     [SerializeField] private int _damage = 20;
     [SerializeField] private GameObject hitParticlePrefab;
     [SerializeField] private GameObject healthTextprefab;
+    [SerializeField] private GameObject bossHealthBar;
+    private GameObject healthBarCanvas;
+    private HealthBar healthBar;
     [SerializeField] private AudioClip hitSound;
     public int damage { get { return _damage; } set { damage = _damage; } }
     public int maxHealth { get { return _maxHealth; } set { maxHealth = _maxHealth; } }
@@ -28,6 +30,8 @@ public class EnemyBehavior : MonoBehaviour, IDamageable
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        healthBarCanvas = Instantiate(bossHealthBar, transform.position, Quaternion.identity);
+        healthBar = healthBarCanvas.GetComponentInChildren<HealthBar>();
     }
 
     // Start is called before the first frame update
@@ -35,11 +39,13 @@ public class EnemyBehavior : MonoBehaviour, IDamageable
     {
         player = GameObject.FindWithTag("Player").transform;
         currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     // Update is called once per frame
     void Update()
     {
+
     }
 
     void FixedUpdate() // Physics update
@@ -90,10 +96,12 @@ public class EnemyBehavior : MonoBehaviour, IDamageable
         HitParticle();
         ShowDamageText(damage);
         currentHealth -= damage;
+        healthBar.SetHealth(currentHealth);
         if (currentHealth <= 0) {
-            animator.SetTrigger("Die");
+            //animator.SetTrigger("Die");
             speed = 0;
             gameObject.GetComponent<Collider2D>().enabled = false;
+            OnObjectDestroy();
         }
         yield return null;
     }
@@ -125,5 +133,6 @@ public class EnemyBehavior : MonoBehaviour, IDamageable
     public void OnObjectDestroy()
     {
         enemySpawner.DeleteEnemy(gameObject);
+        Destroy(healthBarCanvas);
     }
 }

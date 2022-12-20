@@ -1,0 +1,38 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+
+public class TimerScript : MonoBehaviour
+{
+    public TextMeshProUGUI timerText;
+    public float gameTimer = 0.0f;
+    private bool isRunning = true;
+    // Start is called before the first frame update
+    void Start()
+    {
+        timerText = GetComponent<TextMeshProUGUI>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (isRunning)
+        {
+            gameTimer += Time.deltaTime;
+            TimeSpan timeSpan = TimeSpan.FromSeconds(gameTimer);
+            timerText.text = timeSpan.ToString(@"mm\:ss");
+        }
+    }
+
+    public void StopTimer()
+    {
+        isRunning = false;
+    }
+
+    public void ResumeTimer()
+    {
+        isRunning = true;
+    }
+}

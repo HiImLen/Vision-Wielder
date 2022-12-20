@@ -42,7 +42,12 @@ public class SwordProjectileScript : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             //other.gameObject.GetComponent<Rigidbody2D>().AddForce((other.gameObject.transform.position - transform.position).normalized * 0.05f);
-            StartCoroutine(other.gameObject.GetComponent<EnemyBehavior>().Damaged(playerBehavior.damage, null));
+            StartCoroutine(other.gameObject.GetComponent<EnemyBehavior>().Damaged(Mathf.RoundToInt(playerBehavior.damage * playerBehavior.normalAttackMultiplier), null));
+        }
+        if (other.gameObject.tag == "Boss")
+        {
+            //other.gameObject.GetComponent<Rigidbody2D>().AddForce((other.gameObject.transform.position - transform.position).normalized * 0.05f);
+            StartCoroutine(other.gameObject.GetComponent<BossBehavior>().Damaged(Mathf.RoundToInt(playerBehavior.damage * playerBehavior.normalAttackMultiplier), null));
         }
     }
 }

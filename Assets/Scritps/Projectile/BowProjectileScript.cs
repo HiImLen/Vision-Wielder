@@ -70,17 +70,17 @@ public class BowProjectileScript : MonoBehaviour
         //transform.rotation = Quaternion.Euler(0f, 0f, rotationZ - 90);
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D other)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Enemy")
         {
-            int damage = playerBehavior.damage;
-            StartCoroutine(collision.gameObject.GetComponent<EnemyBehavior>().Damaged(damage, null));
-            Destroy(gameObject);
+            //other.gameObject.GetComponent<Rigidbody2D>().AddForce((other.gameObject.transform.position - transform.position).normalized * 0.05f);
+            StartCoroutine(other.gameObject.GetComponent<EnemyBehavior>().Damaged(Mathf.RoundToInt(playerBehavior.damage * playerBehavior.normalAttackMultiplier), null));
         }
-        if (collision.gameObject.tag == "Wall") // destroy projectile when hit wall
+        if (other.gameObject.tag == "Boss")
         {
-            Destroy(gameObject);
+            //other.gameObject.GetComponent<Rigidbody2D>().AddForce((other.gameObject.transform.position - transform.position).normalized * 0.05f);
+            StartCoroutine(other.gameObject.GetComponent<BossBehavior>().Damaged(Mathf.RoundToInt(playerBehavior.damage * playerBehavior.normalAttackMultiplier), null));
         }
     }
 }

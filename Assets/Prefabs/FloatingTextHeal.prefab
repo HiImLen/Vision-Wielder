@@ -110,7 +110,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4283039611
   m_fontColor: {r: 0.48379385, g: 1, b: 0.28785676, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -183,7 +183,7 @@ Animator:
   m_GameObject: {fileID: 2651226504446650823}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 18f5c8a2fa2fb954c904a3db96fa1fba, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5c186617753bece4dadd19c127d3e0e8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
