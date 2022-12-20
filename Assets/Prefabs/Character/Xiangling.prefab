@@ -129,7 +129,67 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 04df53c7-abb1-4464-91c0-6bcb1ba377a6
+    m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d6e18af0-8844-435a-93e9-b07a42ee6fe6
+    m_ActionName: Player/Look[/Mouse/delta]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6c3a86df-8635-40cd-b405-838a37fcf644
+    m_ActionName: Player/Fire[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 02654416-6b03-4303-9d29-a3aab72a61fd
+    m_ActionName: Player/Skill[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 71721773-1295-47cc-b4cb-ee60a3be2eef
+    m_ActionName: Player/Burst[/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4d5413fc-6374-469e-9cfd-c17d9b4912c4
+    m_ActionName: UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f18e5a41-4eb7-4ee5-8d93-3662ada944a9
+    m_ActionName: UI/Submit[/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4987e28d-c736-4ab1-b118-6174f6316c8e
+    m_ActionName: UI/Cancel[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9e69e7f1-2b64-4e1b-9f92-f0e51e24e345
+    m_ActionName: UI/Point[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 60b7e2c3-e8dc-4605-b094-9efbd48159a2
+    m_ActionName: UI/Click[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 550930f4-f552-413a-97e3-585dda89ed57
+    m_ActionName: UI/ScrollWheel[/Mouse/scroll]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 934479fa-6979-4bc3-9857-6cf0ba8db4c3
+    m_ActionName: UI/MiddleClick[/Mouse/middleButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 770fea0c-ff2f-4cd1-b5af-e19ceb8b2cf2
+    m_ActionName: UI/RightClick[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 12c7e0b4-943f-4253-b739-663bf67f4fe3
+    m_ActionName: UI/TrackedDevicePosition
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a9337cd4-6d04-4036-8ffa-90a71c6d6a69
+    m_ActionName: UI/TrackedDeviceOrientation
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -150,6 +210,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 8239885663455087720, guid: c025de370c616d046bf02b4a3d47d870, type: 3}
   attackSpeed: 1
   projectileCount: 1
+  goubaPrefab: {fileID: 7499152179157080215, guid: a449ce5e04913c5458bcf9789a9843aa, type: 3}
   moveSpeed: 5
 --- !u!50 &5293271659699846863
 Rigidbody2D:
