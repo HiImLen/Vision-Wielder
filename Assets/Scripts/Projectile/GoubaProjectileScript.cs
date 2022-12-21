@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GoubaProjectileScript : MonoBehaviour
 {
-    [SerializeField] private float lifeTime = 1.5f;
     private PlayerBehavior playerBehavior;
     private Rigidbody2D rigidbody2d;
 
@@ -42,7 +41,7 @@ public class GoubaProjectileScript : MonoBehaviour
         IDamageable damageable = other.gameObject.GetComponent<IDamageable>();
         if (damageable != null)
         {
-            StartCoroutine(damageable.Damaged(playerBehavior.damage, null));
+            StartCoroutine(damageable.Damaged(Mathf.RoundToInt(playerBehavior.damage * playerBehavior.skillMultiplier), null));
         }
     }
 

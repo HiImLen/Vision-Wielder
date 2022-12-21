@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8239885663455087718}
   - component: {fileID: 3937229646334572332}
   - component: {fileID: 8239885663455087721}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: SwordProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,7 +168,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aac2f7073326ed44e9ce75de791dfd64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitParticlePrefab: {fileID: 8485481290728192229, guid: 4aa45d356ccb20b409d03e2a4a3da6d7, type: 3}
   speed: 300
   lifeTime: 1
 --- !u!95 &8239885663455087721

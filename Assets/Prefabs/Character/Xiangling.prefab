@@ -106,7 +106,8 @@ MonoBehaviour:
   _maxHealth: 1000
   _damage: 50
   internalHitCD: 0.1
-  normalAttackMultiplier: 1.22
+  normalAttackMultiplier: 0.42
+  skillMultiplier: 1.11
 --- !u!114 &1947986479057676234
 MonoBehaviour:
   m_ObjectHideFlags: 0

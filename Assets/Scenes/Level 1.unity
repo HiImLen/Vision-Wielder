@@ -633,7 +633,7 @@ MonoBehaviour:
   - {fileID: 3697388119886545416, guid: 52c51a2b71e43814f95da8669542efde, type: 3}
   - {fileID: 6250863926950740184, guid: 6099c75709680734eb1659387bcb4301, type: 3}
   enemySpawnRate:
-  - 0.2
+  - 1
   - 0.5
   miniBossPrefabs: []
   bossPrefabs:

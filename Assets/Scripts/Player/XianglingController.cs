@@ -20,7 +20,7 @@ public class XianglingController : MonoBehaviour
     Vector2 direction = new Vector2(1, 0);
 
     float skillCD; // skill cooldown
-    bool isCD = false;
+    bool isSkillCD = false;
 
     void Awake()
     {
@@ -40,14 +40,15 @@ public class XianglingController : MonoBehaviour
         if (elapsedTime >= 1 / attackSpeed)
         {
             elapsedTime = 0.0f;
-            //Invoke("NormalAttack", 0.1f);
+            Invoke("NormalAttack", 0.1f);
         }
 
-        if(isCD){
+        if (isSkillCD) 
+        {
             skillCD -= Time.deltaTime;
-            if(skillCD <= 0){
+            if (skillCD <= 0) {
                 skillCD = skillCDTimer;
-                isCD = false;
+                isSkillCD = false;
             }
         }
     }
@@ -72,9 +73,10 @@ public class XianglingController : MonoBehaviour
 
     void OnSkill()
     {
-        if (skillCD == skillCDTimer){
+        if (skillCD == skillCDTimer) 
+        {
             GameObject gouba = Instantiate(goubaPrefab, transform.position, Quaternion.identity);
-            isCD = true;
+            isSkillCD = true;
         }
         //gouba.GetComponent<Gouba>().Launch(direction);
     }

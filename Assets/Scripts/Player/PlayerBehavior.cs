@@ -12,7 +12,8 @@ public class PlayerBehavior : MonoBehaviour, IDamageable
     public int maxHealth { get {return _maxHealth;} set {maxHealth = _maxHealth;} }
     public int currentHealth { get; set; }
     private HealthBar healthBar;
-    public float normalAttackMultiplier = 1.22f;
+    public float normalAttackMultiplier = 0.42f;
+    public float skillMultiplier = 1.11f;
 
     void Start()
     {

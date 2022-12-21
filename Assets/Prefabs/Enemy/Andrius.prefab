@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb02b7ca6cc91ab47a56285a37690ffa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 10000
+  _maxHealth: 5000
   _damage: 20
   hitParticlePrefab: {fileID: 8485481290728192229, guid: 4aa45d356ccb20b409d03e2a4a3da6d7, type: 3}
   healthTextprefab: {fileID: 2651226504446650823, guid: c09eb7abfabc8604aa88e483c3548ada, type: 3}

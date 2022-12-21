@@ -42,7 +42,7 @@ public class SwordProjectileScript : MonoBehaviour
         IDamageable damageable = other.gameObject.GetComponent<IDamageable>();
         if (damageable != null)
         {
-            StartCoroutine(damageable.Damaged(playerBehavior.damage, null));
+            StartCoroutine(damageable.Damaged(Mathf.RoundToInt(playerBehavior.damage * playerBehavior.normalAttackMultiplier), null));
         }
     }
 }

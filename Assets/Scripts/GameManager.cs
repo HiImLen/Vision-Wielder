@@ -49,11 +49,11 @@ public class GameManager : MonoBehaviour
     public void GoToMenu()
     {
         // Save game
-        TimerScript timer = FindObjectOfType<TimerScript>();
-        float time = timer.gameTimer;
-        PlayerBehavior player = FindObjectOfType<PlayerBehavior>();
-        int health = player.currentHealth;
-        saveManager.SaveGameBinary(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex, time, health);
+        //TimerScript timer = FindObjectOfType<TimerScript>();
+        //float time = timer.gameTimer;
+        //PlayerBehavior player = FindObjectOfType<PlayerBehavior>();
+        //int health = player.currentHealth;
+        //saveManager.SaveGameBinary(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex, time, health);
 
         levelLoader.LoadLevel(0);
         audioManager.StopMusic();
