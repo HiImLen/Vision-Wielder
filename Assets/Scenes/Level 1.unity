@@ -1107,6 +1107,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 828078024533808037, guid: cf468d850c9004142871f348a686147e, type: 3}
+      propertyPath: burstCDTimer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 828078024533808037, guid: cf468d850c9004142871f348a686147e, type: 3}
+      propertyPath: skillCDTimer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 5293271659699846832, guid: cf468d850c9004142871f348a686147e, type: 3}
       propertyPath: _damage
       value: 50
