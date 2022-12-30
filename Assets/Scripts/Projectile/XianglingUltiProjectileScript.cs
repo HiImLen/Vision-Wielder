@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class XianglingUltiProjectileScript : MonoBehaviour
 {
-    [SerializeField] public float speed = 200f;
     [SerializeField] private float lifeTime = 12.0f;
-    [SerializeField] private float radius = 1f;
 
     private float angularSpeed, rotationRadius;
     private PlayerBehavior playerBehavior;

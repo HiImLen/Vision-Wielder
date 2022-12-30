@@ -95,7 +95,6 @@ public class XianglingController : MonoBehaviour
             GameObject gouba = Instantiate(goubaPrefab, transform.position, Quaternion.identity);
             isSkillCD = true;
         }
-        //gouba.GetComponent<Gouba>().Launch(direction);
     }
 
     void OnBurst(){

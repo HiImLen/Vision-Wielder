@@ -12,7 +12,7 @@ public class BowProjectileScript : MonoBehaviour
     private EnemySpawner enemySpawner;
     private GameObject closestEnemy;
     bool targetAcquired = false;
-    
+
     bool dicrectionUp;
     private void Awake()
     {
@@ -37,7 +37,7 @@ public class BowProjectileScript : MonoBehaviour
         // Debug.Log(resultingDirection);
         // transform.rotation = Quaternion.LookRotation(resultingDirection);
         // rigidbody2d.AddForce(transform.forward * speed);
-        
+
         if (enemySpawner.enemyList.Count != 0 && targetAcquired == false)
         {
             closestEnemy = enemySpawner.GetClosestEnemy(transform.position);
@@ -52,7 +52,7 @@ public class BowProjectileScript : MonoBehaviour
             // fire projectile with tracking, fire randomly upward or downward
             Vector2 dicrection = (closestEnemy.transform.position - transform.position).normalized;
             float rotateAmount = Vector3.Cross(dicrection, (dicrectionUp ? transform.up : -transform.up)).z;
-            rigidbody2d.angularVelocity = -rotateAmount * Random.Range( 00, 1400);
+            rigidbody2d.angularVelocity = -rotateAmount * Random.Range(00, 1400);
             rigidbody2d.velocity = (dicrectionUp ? transform.up : -transform.up) * speed;
         }
     }
@@ -75,7 +75,8 @@ public class BowProjectileScript : MonoBehaviour
         IDamageable damageable = other.gameObject.GetComponent<IDamageable>();
         if (damageable != null)
         {
-            StartCoroutine(damageable.Damaged(playerBehavior.damage, null));
+            StartCoroutine(damageable.Damaged(Mathf.RoundToInt(playerBehavior.damage * playerBehavior.skillMultiplier), null));
+            Destroy(gameObject);
         }
     }
 }

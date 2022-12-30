@@ -142,6 +142,8 @@ MonoBehaviour:
   _maxHealth: 1000
   _damage: 50
   internalHitCD: 0.1
+  normalAttackMultiplier: 0.42
+  skillMultiplier: 1.11
 --- !u!114 &4682392571994836369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,5 +188,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 6285840776706621973, guid: 07b4cf7aecd58de419adface59e5539a, type: 3}
   attackSpeed: 1
-  projectileCount: 5
+  projectileCount: 1
   moveSpeed: 5
