@@ -57,7 +57,11 @@ public class XianglingUltiProjectileScript : MonoBehaviour
         {
             // Debug.Log("Gouba Hit Enemy!");
             //other.gameObject.GetComponent<Rigidbody2D>().AddForce((other.gameObject.transform.position - transform.position).normalized * 0.05f);
-            StartCoroutine(other.gameObject.GetComponent<EnemyBehavior>().Damaged(playerBehavior.damage, null));
+            IDamageable damageable = other.gameObject.GetComponent<IDamageable>();
+            if (damageable != null)
+            {
+                StartCoroutine(damageable.Damaged(Mathf.RoundToInt(playerBehavior.damage * playerBehavior.skillMultiplier), null));
+            }
         }
     }
 }
