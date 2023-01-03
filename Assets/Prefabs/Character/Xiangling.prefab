@@ -214,7 +214,9 @@ MonoBehaviour:
   attackSpeed: 1.5
   projectileCount: 1
   goubaPrefab: {fileID: 7499152179157080215, guid: a449ce5e04913c5458bcf9789a9843aa, type: 3}
-  skillCDTimer: 0
+  burstPrefab: {fileID: 932538935681277833, guid: 29668969fc634e140b3a1c15c32b34a6, type: 3}
+  skillCDTimer: 12
+  burstCDTimer: 20
   moveSpeed: 3
 --- !u!50 &5293271659699846863
 Rigidbody2D:

@@ -8,8 +8,12 @@ public class XianglingController : MonoBehaviour
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private float attackSpeed = 1f;
     [SerializeField] private int projectileCount = 1;
+
     [SerializeField] private GameObject goubaPrefab;
+    [SerializeField] private GameObject burstPrefab;
+
     [SerializeField] private float skillCDTimer = 12.0f; // skill cooldown timer
+    [SerializeField] private float burstCDTimer = 20.0f; // burst cooldown timer
 
     private EnemySpawner enemySpawner;
     private float elapsedTime = 0.0f;
@@ -22,6 +26,9 @@ public class XianglingController : MonoBehaviour
     float skillCD; // skill cooldown
     bool isSkillCD = false;
 
+    float burstCD; // burst cooldown
+    bool isBurstCD = false;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -30,6 +37,7 @@ public class XianglingController : MonoBehaviour
     void Start()
     {
         skillCD = skillCDTimer;
+        burstCD = burstCDTimer;
         enemySpawner = GameObject.FindWithTag("EnemySpawner").GetComponent<EnemySpawner>();
     }
 
@@ -49,6 +57,15 @@ public class XianglingController : MonoBehaviour
             if (skillCD <= 0) {
                 skillCD = skillCDTimer;
                 isSkillCD = false;
+            }
+        }
+
+        if(isBurstCD) 
+        {
+            burstCD -= Time.deltaTime;
+            if (burstCD <= 0) {
+                burstCD = burstCDTimer;
+                isBurstCD = false;
             }
         }
     }
@@ -78,7 +95,15 @@ public class XianglingController : MonoBehaviour
             GameObject gouba = Instantiate(goubaPrefab, transform.position, Quaternion.identity);
             isSkillCD = true;
         }
-        //gouba.GetComponent<Gouba>().Launch(direction);
+    }
+
+    void OnBurst(){
+        if (burstCD == burstCDTimer) 
+        {
+            GameObject burst = Instantiate(burstPrefab, transform.position, Quaternion.identity);
+            // burst.GetComponent<XianglingUltiProjectileScript>().Launch();
+            isBurstCD = true;
+        }
     }
 
     private void NormalAttack()
