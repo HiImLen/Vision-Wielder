@@ -20,13 +20,13 @@ public class Gouba : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        Debug.Log("Gouba is awake");
+        //Debug.Log("Gouba is awake");
     }
 
     void Start()
     {
         enemySpawner = GameObject.FindWithTag("EnemySpawner").GetComponent<EnemySpawner>();
-        Debug.Log("Gouba is started");
+        //Debug.Log("Gouba is started");
     }
 
     // Update is called once per frame
@@ -76,7 +76,7 @@ public class Gouba : MonoBehaviour
         goubaProjectile.GetComponent<GoubaProjectileScript>().Launch(closestEnemy.transform.position);
         attackCount++;
 
-        Debug.Log("ATTACK COUNT: " + attackCount);
+        //Debug.Log("ATTACK COUNT: " + attackCount);
         // Debug.Log("Gouba is attacking");
     }
 }

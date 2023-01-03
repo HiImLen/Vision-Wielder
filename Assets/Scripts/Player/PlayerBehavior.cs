@@ -14,6 +14,7 @@ public class PlayerBehavior : MonoBehaviour, IDamageable
     private HealthBar healthBar;
     public float normalAttackMultiplier = 0.42f;
     public float skillMultiplier = 1.11f;
+    public float burstMultiplier = 1.12f;
 
     void Start()
     {
