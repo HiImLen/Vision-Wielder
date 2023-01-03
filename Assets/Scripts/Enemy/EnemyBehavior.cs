@@ -10,7 +10,6 @@ public class EnemyBehavior : MonoBehaviour, IDamageable
     [SerializeField] private int _damage = 20;
     [SerializeField] private GameObject hitParticlePrefab;
     [SerializeField] private GameObject healthTextprefab;
-    [SerializeField] private AudioClip hitSound;
     public int damage { get { return _damage; } set { damage = _damage; } }
     public int maxHealth { get { return _maxHealth; } set { maxHealth = _maxHealth; } }
     public int currentHealth { get; set; }

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8844860924423922754}
   - component: {fileID: 7890799533219642689}
   - component: {fileID: -3504420351739945141}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Andrius
   m_TagString: Boss
   m_Icon: {fileID: 0}

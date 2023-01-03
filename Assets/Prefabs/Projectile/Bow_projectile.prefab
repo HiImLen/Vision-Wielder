@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 6285840776706621976}
   - component: {fileID: 6285840776706621975}
+  - component: {fileID: 6285840776706621979}
   - component: {fileID: 6285840776706621978}
   - component: {fileID: 6285840776706621977}
-  - component: {fileID: 6285840776706621979}
   - component: {fileID: 5044401821525369418}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Bow_projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,6 +88,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6285840776706621979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6285840776706621973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e70ab3784b3fe2047aa196a4a91ca730, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  lifeTime: 5
 --- !u!70 &6285840776706621978
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -125,20 +139,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &6285840776706621979
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6285840776706621973}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e70ab3784b3fe2047aa196a4a91ca730, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  lifeTime: 5
 --- !u!96 &5044401821525369418
 TrailRenderer:
   serializedVersion: 2

@@ -17,11 +17,11 @@ public class BowProjectileScript : MonoBehaviour
     private void Awake()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
+        playerBehavior = GetComponent<PlayerBehavior>();
     }
 
     private void Start()
     {
-        playerBehavior = GameObject.FindWithTag("Player").GetComponent<PlayerBehavior>();
         enemySpawner = GameObject.FindWithTag("EnemySpawner").GetComponent<EnemySpawner>();
         dicrectionUp = Random.Range(0, 2) == 0;
         Destroy(gameObject, lifeTime);
@@ -52,7 +52,7 @@ public class BowProjectileScript : MonoBehaviour
             // fire projectile with tracking, fire randomly upward or downward
             Vector2 dicrection = (closestEnemy.transform.position - transform.position).normalized;
             float rotateAmount = Vector3.Cross(dicrection, (dicrectionUp ? transform.up : -transform.up)).z;
-            rigidbody2d.angularVelocity = -rotateAmount * Random.Range( 00, 1400);
+            rigidbody2d.angularVelocity = -rotateAmount * Random.Range( 800, 1400);
             rigidbody2d.velocity = (dicrectionUp ? transform.up : -transform.up) * speed;
         }
     }

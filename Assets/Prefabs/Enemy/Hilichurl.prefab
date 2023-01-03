@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 7539194723611354369}
   - component: {fileID: 917700114257327093}
   - component: {fileID: 2604503972494689720}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hilichurl
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6250863926950740184}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.455, y: 0.066, z: 0}
-  m_LocalScale: {x: 0.40738863, y: 0.40738863, z: 0.40738863}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -104,7 +104,6 @@ MonoBehaviour:
   _damage: 30
   hitParticlePrefab: {fileID: 8485481290728192229, guid: 4aa45d356ccb20b409d03e2a4a3da6d7, type: 3}
   healthTextprefab: {fileID: 2651226504446650823, guid: c09eb7abfabc8604aa88e483c3548ada, type: 3}
-  hitSound: {fileID: 0}
   enemySpawner: {fileID: 0}
   speed: 1.5
 --- !u!50 &7539194723611354369
@@ -141,8 +140,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.06259833, y: -0.08764227}
-  m_Size: {x: 0.6378261, y: 1.3556617}
+  m_Offset: {x: 0.062598325, y: 0.11024825}
+  m_Size: {x: 0.6378261, y: 1.0729612}
   m_Direction: 0
 --- !u!95 &2604503972494689720
 Animator:

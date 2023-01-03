@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8276163651426954599}
   - component: {fileID: 6213314082218832392}
   - component: {fileID: -1604796037625080682}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Dvalin
   m_TagString: Boss
   m_Icon: {fileID: 0}

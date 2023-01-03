@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1407303529245236993}
   - component: {fileID: 1407303529245236998}
   - component: {fileID: 1407303529245236999}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Fire_Incendiary
   m_TagString: Untagged
   m_Icon: {fileID: 0}

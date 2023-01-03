@@ -633,9 +633,10 @@ MonoBehaviour:
   - {fileID: 3697388119886545416, guid: 52c51a2b71e43814f95da8669542efde, type: 3}
   - {fileID: 6250863926950740184, guid: 6099c75709680734eb1659387bcb4301, type: 3}
   enemySpawnRate:
-  - 1
   - 0.5
-  miniBossPrefabs: []
+  - 0.5
+  miniBossPrefabs:
+  - {fileID: 5271563140940898189, guid: 6f3fa868424052f419ca1eb5ee7497de, type: 3}
   bossPrefabs:
   - {fileID: 7890799533219642695, guid: 477b9deb995e34d4f9a33717a31246a2, type: 3}
   - {fileID: 8276163651426954596, guid: f9a7167fca1dca747858d20380e354ea, type: 3}
@@ -1158,6 +1159,10 @@ PrefabInstance:
     - target: {fileID: 5293271659699846861, guid: cf468d850c9004142871f348a686147e, type: 3}
       propertyPath: m_Name
       value: Xiangling
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293271659699846861, guid: cf468d850c9004142871f348a686147e, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5293271659699846861, guid: cf468d850c9004142871f348a686147e, type: 3}
       propertyPath: m_StaticEditorFlags

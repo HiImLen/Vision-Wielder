@@ -50,6 +50,7 @@ public class EnemySpawner : MonoBehaviour
     IEnumerator SpawnFirstWave()
     {
         isSpawning = true;
+        if (timer.GetComponent<TimerScript>().gameTimer >= 55.0f) isSpawning = false;
         spawnRate = enemySpawnRate[0];
         index = 0;
         yield return new WaitUntil(() => timer.GetComponent<TimerScript>().gameTimer >= 60.0f);
@@ -58,7 +59,9 @@ public class EnemySpawner : MonoBehaviour
     IEnumerator SpawnSecondWave()
     {
         yield return SpawnFirstWave();
+        SpawnMiniBoss(0);
         isSpawning = true;
+        if (timer.GetComponent<TimerScript>().gameTimer >= 115.0f) isSpawning = false;
         spawnRate = enemySpawnRate[1];
         index = 1;
         yield return new WaitUntil(() => timer.GetComponent<TimerScript>().gameTimer >= 120.0f);

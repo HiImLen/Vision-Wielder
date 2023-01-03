@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6519074612387563599}
   - component: {fileID: 4682392571994836369}
   - component: {fileID: 8750969760664190320}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Yoimiya
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -142,6 +142,8 @@ MonoBehaviour:
   _maxHealth: 1000
   _damage: 50
   internalHitCD: 0.1
+  normalAttackMultiplier: 0.42
+  skillMultiplier: 1.11
 --- !u!114 &4682392571994836369
 MonoBehaviour:
   m_ObjectHideFlags: 0

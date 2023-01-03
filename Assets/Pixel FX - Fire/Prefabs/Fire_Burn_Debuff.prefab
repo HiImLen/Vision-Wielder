@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8913081901091584519}
   - component: {fileID: 8913081901091584536}
   - component: {fileID: 8913081901091584537}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Fire_Burn_Debuff
   m_TagString: Untagged
   m_Icon: {fileID: 0}

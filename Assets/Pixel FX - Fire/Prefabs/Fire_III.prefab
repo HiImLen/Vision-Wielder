@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2097156946248922495}
   - component: {fileID: 2097156946248922494}
   - component: {fileID: 2097156946248922493}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Fire_III_Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2097156947464613901}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Fire_III
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5066039243770556781}
   - component: {fileID: 5066039243770556780}
   - component: {fileID: 5066039243770556787}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Fire_Meteors_Medium_A
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5293271659699846863}
   - component: {fileID: 5293271659699846862}
   - component: {fileID: 7335359896801999047}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Xiangling
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -214,7 +214,7 @@ MonoBehaviour:
   attackSpeed: 1.5
   projectileCount: 1
   goubaPrefab: {fileID: 7499152179157080215, guid: a449ce5e04913c5458bcf9789a9843aa, type: 3}
-  skillCDTimer: 12
+  skillCDTimer: 0
   moveSpeed: 3
 --- !u!50 &5293271659699846863
 Rigidbody2D:
