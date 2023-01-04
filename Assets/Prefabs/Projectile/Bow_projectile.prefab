@@ -102,6 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   lifeTime: 5
+  ultiDamageMultiplier: 3
 --- !u!70 &6285840776706621978
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

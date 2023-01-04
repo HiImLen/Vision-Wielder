@@ -53,7 +53,7 @@ public class XianglingUltiProjectileScript : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            // Debug.Log("Gouba Hit Enemy!");
+            // Debug.Log("Burst Hit Enemy!");
             //other.gameObject.GetComponent<Rigidbody2D>().AddForce((other.gameObject.transform.position - transform.position).normalized * 0.05f);
             IDamageable damageable = other.gameObject.GetComponent<IDamageable>();
             if (damageable != null)
