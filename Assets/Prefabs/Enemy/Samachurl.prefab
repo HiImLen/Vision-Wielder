@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 2442232173664321898}
   - component: {fileID: 2442232173664321899}
   - component: {fileID: 2442232173664321896}
-  m_Layer: 8
+  - component: {fileID: 5389788971145314825}
+  m_Layer: 7
   m_Name: Samachurl
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f32f5056a1327bb4a893cd59a9ae83b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 75
+  _maxHealth: 2000
   _damage: 20
   hitParticlePrefab: {fileID: 8485481290728192229, guid: 4aa45d356ccb20b409d03e2a4a3da6d7, type: 3}
   healthTextprefab: {fileID: 2651226504446650823, guid: c09eb7abfabc8604aa88e483c3548ada, type: 3}
@@ -144,3 +145,23 @@ CapsuleCollider2D:
   m_Offset: {x: -0.5278474, y: -0.44906387}
   m_Size: {x: 0.8098282, y: 1.2825266}
   m_Direction: 0
+--- !u!95 &5389788971145314825
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2442232173664321897}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 76b4d8ae955ee814f9879e8ae918faa5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
