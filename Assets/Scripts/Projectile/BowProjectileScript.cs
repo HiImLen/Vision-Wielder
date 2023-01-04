@@ -6,6 +6,8 @@ public class BowProjectileScript : MonoBehaviour
 {
     [SerializeField] public float speed = 5f;
     [SerializeField] private float lifeTime = 5f;
+    [SerializeField] private float ultiDamageMultiplier = 3.0f;
+
     private PlayerBehavior playerBehavior;
     private Rigidbody2D rigidbody2d;
     Vector3 targetPosition;
@@ -16,13 +18,13 @@ public class BowProjectileScript : MonoBehaviour
     bool dicrectionUp;
     private void Awake()
     {
-        rigidbody2d = GetComponent<Rigidbody2D>();
-        playerBehavior = GetComponent<PlayerBehavior>();
+        rigidbody2d = GetComponent<Rigidbody2D>();        
     }
 
     private void Start()
     {
         enemySpawner = GameObject.FindWithTag("EnemySpawner").GetComponent<EnemySpawner>();
+        playerBehavior = GameObject.FindWithTag("Player").GetComponent<PlayerBehavior>();
         dicrectionUp = Random.Range(0, 2) == 0;
         Destroy(gameObject, lifeTime);
     }
@@ -52,7 +54,7 @@ public class BowProjectileScript : MonoBehaviour
             // fire projectile with tracking, fire randomly upward or downward
             Vector2 dicrection = (closestEnemy.transform.position - transform.position).normalized;
             float rotateAmount = Vector3.Cross(dicrection, (dicrectionUp ? transform.up : -transform.up)).z;
-            rigidbody2d.angularVelocity = -rotateAmount * Random.Range( 800, 1400);
+            rigidbody2d.angularVelocity = -rotateAmount * Random.Range(800, 1400);
             rigidbody2d.velocity = (dicrectionUp ? transform.up : -transform.up) * speed;
         }
     }
@@ -73,9 +75,17 @@ public class BowProjectileScript : MonoBehaviour
     private void OnCollisionStay2D(Collision2D other)
     {
         IDamageable damageable = other.gameObject.GetComponent<IDamageable>();
+        YomiyaUltiMark mark = other.gameObject.GetComponent<YomiyaUltiMark>();
         if (damageable != null)
         {
-            StartCoroutine(damageable.Damaged(Mathf.RoundToInt(playerBehavior.damage * playerBehavior.skillMultiplier), null));
+            if (mark != null)
+            {
+                StartCoroutine(damageable.Damaged(Mathf.RoundToInt(playerBehavior.damage * playerBehavior.burstMultiplier * ultiDamageMultiplier), null));
+            }
+            else
+            {
+                StartCoroutine(damageable.Damaged(Mathf.RoundToInt(playerBehavior.damage * playerBehavior.skillMultiplier), null));
+            }
             Destroy(gameObject);
         }
     }

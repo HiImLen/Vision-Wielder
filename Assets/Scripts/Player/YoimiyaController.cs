@@ -8,9 +8,12 @@ public class YoimiyaController : MonoBehaviour
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private float attackSpeed = 1.0f;
     [SerializeField] private int projectileCount = 1;
+
     [SerializeField] private float skillCDTimer = 18.0f; // skill cooldown timer
     [SerializeField] private float skillEffectTimer = 10.0f; // skill effect timer
+
     [SerializeField] private float burstCDTimer = 20.0f; // burst cooldown timer
+    [SerializeField] private float burstEffectTimer = 10.0f; // burst effect timer
 
     private EnemySpawner enemySpawner;
     private float elapsedTime = 0.0f;
@@ -29,6 +32,7 @@ public class YoimiyaController : MonoBehaviour
     bool isBurstCD = false;
 
     float skillEffectCD; // skill effect cooldown
+    float burstEffectCD; // burst effect cooldown
 
     void Awake()
     {
@@ -42,12 +46,13 @@ public class YoimiyaController : MonoBehaviour
         skillCD = skillCDTimer;
         burstCD = burstCDTimer;
         skillEffectCD = skillEffectTimer;
+        burstEffectCD = burstEffectTimer;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Attack speed: " + attackSpeed);
+        // Debug.Log("Attack speed: " + attackSpeed);
         elapsedTime += Time.deltaTime;
         if (elapsedTime >= 1 / attackSpeed)
         {
@@ -73,7 +78,7 @@ public class YoimiyaController : MonoBehaviour
                 attackSpeed -= playerBehavior.normalAttackMultiplier * 3;
                 playerBehavior.skillMultiplier /= 2.0f;
             }
-            if (skillEffectCD < skillEffectTimer)
+            else if (skillEffectCD < skillEffectTimer)
                 skillEffectCD -= Time.deltaTime;
         }
 
@@ -85,6 +90,23 @@ public class YoimiyaController : MonoBehaviour
                 burstCD = burstCDTimer;
                 isBurstCD = false;
             }
+
+            if (burstEffectCD <= 0)
+            {
+                // int count = 0;
+                burstEffectCD = burstEffectTimer;
+                foreach (GameObject enemy in enemySpawner.enemyList)
+                {
+                    if (enemy.GetComponent<YomiyaUltiMark>() != null)
+                    {
+                        Destroy(enemy.GetComponent<YomiyaUltiMark>());
+                        // count++;
+                    }
+                }
+                // Debug.Log("Mark Count Delete: " + count);
+            }
+            else if (burstEffectCD < burstEffectTimer)
+                burstEffectCD -= Time.deltaTime;
         }
     }
 
@@ -114,8 +136,13 @@ public class YoimiyaController : MonoBehaviour
     {
         if (burstCD == burstCDTimer)
         {
-            // Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-            isBurstCD = true;
+            GameObject closetEnemy = enemySpawner.GetClosestEnemy(transform.position);
+            if (closetEnemy != null)
+            {
+                closetEnemy.AddComponent<YomiyaUltiMark>();
+                burstEffectCD -= Time.deltaTime;
+                isBurstCD = true;
+            }
         }
     }
 
