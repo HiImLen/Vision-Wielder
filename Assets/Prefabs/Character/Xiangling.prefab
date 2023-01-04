@@ -108,6 +108,7 @@ MonoBehaviour:
   internalHitCD: 0.1
   normalAttackMultiplier: 0.42
   skillMultiplier: 1.11
+  burstMultiplier: 1.12
 --- !u!114 &1947986479057676234
 MonoBehaviour:
   m_ObjectHideFlags: 0

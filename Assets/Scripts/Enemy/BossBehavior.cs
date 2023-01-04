@@ -12,7 +12,6 @@ public class BossBehavior : MonoBehaviour, IDamageable
     [SerializeField] private GameObject bossHealthBar;
     private GameObject healthBarCanvas;
     private HealthBar healthBar;
-    [SerializeField] private AudioClip hitSound;
     public int damage { get { return _damage; } set { damage = _damage; } }
     public int maxHealth { get { return _maxHealth; } set { maxHealth = _maxHealth; } }
     public int currentHealth { get; set; }

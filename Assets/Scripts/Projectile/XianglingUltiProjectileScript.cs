@@ -23,7 +23,7 @@ public class XianglingUltiProjectileScript : MonoBehaviour
     {
         playerBehavior = GameObject.FindWithTag("Player").GetComponent<PlayerBehavior>();
         rotationCenter = GameObject.FindWithTag("Player").GetComponent<Transform>();
-        angularSpeed = 3.0f;
+        angularSpeed = -4.5f;
         rotationRadius = 3.0f;
         posX = posY = angle = 0f;
         Destroy(gameObject, lifeTime);
@@ -51,7 +51,7 @@ public class XianglingUltiProjectileScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag != "Player")
         {
             // Debug.Log("Gouba Hit Enemy!");
             //other.gameObject.GetComponent<Rigidbody2D>().AddForce((other.gameObject.transform.position - transform.position).normalized * 0.05f);

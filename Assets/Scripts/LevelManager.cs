@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    public GameObject[] enemyPrefabs;
+    public int maxCapacity;
     public float[] enemySpawnRate;
+    public int[] spawnCount;
+    public GameObject[] enemyPrefabs;
     public GameObject[] miniBossPrefabs;
     public GameObject[] bossPrefabs;
     public AudioClip[] music;

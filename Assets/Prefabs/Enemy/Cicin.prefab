@@ -10,10 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 8437703277731580539}
   - component: {fileID: 8437703277731580536}
-  - component: {fileID: 8437703277731580537}
   - component: {fileID: 8437703277731580518}
+  - component: {fileID: -7940907117871462138}
   - component: {fileID: 5386596335296542982}
   - component: {fileID: 3296521339907625873}
+  - component: {fileID: 8437703277731580537}
   m_Layer: 8
   m_Name: Cicin
   m_TagString: Untagged
@@ -88,26 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &8437703277731580537
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8437703277731580519}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 014142880a675ed438cb80da950bca4e, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &8437703277731580518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,6 +107,25 @@ MonoBehaviour:
   healthTextprefab: {fileID: 2651226504446650823, guid: c09eb7abfabc8604aa88e483c3548ada, type: 3}
   enemySpawner: {fileID: 0}
   speed: 2
+--- !u!114 &-7940907117871462138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8437703277731580519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a87669b42cef9bb4cbbc93645303dbff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 6285840776706621973, guid: 77916ed3082d5ad4eb7cb9d0c9927d23, type: 3}
+  speed: 400
+  lifeTime: 5
+  fireCount: 1
+  fireDelay: 0.1
+  fireRate: 5
+  fireRange: 20
 --- !u!50 &5386596335296542982
 Rigidbody2D:
   serializedVersion: 4
@@ -163,3 +163,23 @@ CircleCollider2D:
   m_Offset: {x: -0.011739265, y: 0.017687809}
   serializedVersion: 2
   m_Radius: 0.18158989
+--- !u!95 &8437703277731580537
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8437703277731580519}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 014142880a675ed438cb80da950bca4e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

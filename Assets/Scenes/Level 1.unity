@@ -634,14 +634,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce9b339e5f296a44cb4491320f35a3df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxCapacity: 200
+  enemySpawnRate:
+  - 1
+  - 1
+  - 1
+  - 1
+  spawnCount: 02000000020000000400000008000000
   enemyPrefabs:
   - {fileID: 3697388119886545416, guid: 52c51a2b71e43814f95da8669542efde, type: 3}
   - {fileID: 6250863926950740184, guid: 6099c75709680734eb1659387bcb4301, type: 3}
-  enemySpawnRate:
-  - 0.5
-  - 0.5
   miniBossPrefabs:
   - {fileID: 5271563140940898189, guid: 6f3fa868424052f419ca1eb5ee7497de, type: 3}
+  - {fileID: 2442232173664321897, guid: 10214b86626fbbe4bae7abfe604fbd9d, type: 3}
   bossPrefabs:
   - {fileID: 7890799533219642695, guid: 477b9deb995e34d4f9a33717a31246a2, type: 3}
   - {fileID: 8276163651426954596, guid: f9a7167fca1dca747858d20380e354ea, type: 3}
@@ -1113,13 +1118,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5293271659699846832, guid: cf468d850c9004142871f348a686147e, type: 3}
-      propertyPath: _damage
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 5293271659699846834, guid: cf468d850c9004142871f348a686147e, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5293271659699846834, guid: cf468d850c9004142871f348a686147e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1428,7 +1429,7 @@ RectTransform:
   m_Children:
   - {fileID: 2128607543}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1615,7 +1616,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1700738945
 MonoBehaviour:
@@ -1631,6 +1632,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyList: []
   spawnRadius: 15
+  mapType: 0
+  bounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
 --- !u!1001 &1990303454
 PrefabInstance:
   m_ObjectHideFlags: 0

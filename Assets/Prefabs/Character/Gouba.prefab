@@ -12,8 +12,7 @@ GameObject:
   - component: {fileID: 4162254483922185833}
   - component: {fileID: 8866581888155302953}
   - component: {fileID: 3776937652052436050}
-  - component: {fileID: -4164517634453894725}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Gouba
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +93,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7499152179157080215}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -128,24 +127,3 @@ MonoBehaviour:
   projectilePrefab: {fileID: 1284241484961176662, guid: 123491c37b61a6345b92e221d8ab889f, type: 3}
   attackSpeed: 1
   attackCount: 0
---- !u!50 &-4164517634453894725
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7499152179157080215}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 0.0001
-  m_LinearDrag: 0
-  m_AngularDrag: 0
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4

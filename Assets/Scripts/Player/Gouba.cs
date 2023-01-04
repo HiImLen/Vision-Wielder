@@ -72,6 +72,9 @@ public class Gouba : MonoBehaviour
         GameObject closestEnemy = enemySpawner.GetClosestEnemy(transform.position);
         //Debug.Log("CLOSEST ENEMY: " + closestEnemy.transform.position);
 
+        if (closestEnemy == null)
+            return;
+
         GameObject goubaProjectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
         goubaProjectile.GetComponent<GoubaProjectileScript>().Launch(closestEnemy.transform.position);
         attackCount++;

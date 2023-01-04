@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 6285840776706621976}
   - component: {fileID: 6285840776706621975}
-  - component: {fileID: 6285840776706621979}
+  - component: {fileID: 3428284737647655106}
   - component: {fileID: 6285840776706621978}
   - component: {fileID: 6285840776706621977}
   - component: {fileID: 5044401821525369418}
   m_Layer: 10
-  m_Name: Bow_projectile
+  m_Name: CicinProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6285840776706621973}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071064, w: -0.7071072}
-  m_LocalPosition: {x: 0.4443, y: -0.2088, z: 0}
+  m_LocalPosition: {x: 0.1896, y: -0.2083, z: 0}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 0.9150943, g: 0.69615096, b: 0.26341608, a: 1}
+  m_Color: {r: 0.8998858, g: 0.2627451, b: 0.9137255, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -88,7 +88,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6285840776706621979
+--- !u!114 &3428284737647655106
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -97,11 +97,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6285840776706621973}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e70ab3784b3fe2047aa196a4a91ca730, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e767cd15b9b5024aba5155ab4be574f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  lifeTime: 5
+  enemyBehavior: {fileID: 0}
 --- !u!70 &6285840776706621978
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -148,7 +147,7 @@ TrailRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6285840776706621973}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -211,8 +210,8 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0.8980392, g: 0.2627451, b: 0.9137255, a: 1}
+      key1: {r: 0.8980392, g: 0.2627451, b: 0.9137255, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -235,7 +234,7 @@ TrailRenderer:
       atime5: 0
       atime6: 0
       atime7: 0
-      m_Mode: 0
+      m_Mode: 1
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0
