@@ -171,7 +171,7 @@ public class EnemySpawner : MonoBehaviour
     void SpawnMiniBoss(int index)
     {
         Vector3 spawnPosition;
-        spawnPosition = player.transform.position + Random.onUnitSphere * spawnRadius/4;
+        spawnPosition = player.transform.position + Random.onUnitSphere * spawnRadius/2;
         GameObject enemy = Instantiate(miniBossPrefabs[index], spawnPosition, Quaternion.identity, transform);
         enemy.GetComponent<EnemyBehavior>().enemySpawner = this; // Set the enemySpawner of the enemy
         enemy.tag = "Enemy";

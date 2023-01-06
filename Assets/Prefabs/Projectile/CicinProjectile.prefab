@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6285840776706621978}
   - component: {fileID: 6285840776706621977}
   - component: {fileID: 5044401821525369418}
-  m_Layer: 10
+  m_Layer: 6
   m_Name: CicinProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
