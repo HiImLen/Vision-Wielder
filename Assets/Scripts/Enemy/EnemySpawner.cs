@@ -102,8 +102,8 @@ public class EnemySpawner : MonoBehaviour
         yield return SpawnFirstBoss();
         timer.GetComponent<TimerScript>().ResumeTimer();
         timer.SetActive(true);
-        if (timer.GetComponent<TimerScript>().gameTimer >= 122.0f)
-            isSpawning = true;
+        yield return new WaitUntil(() => timer.GetComponent<TimerScript>().gameTimer >= 122.0f);
+        isSpawning = true;
         spawnMobs = true;
         indices = new int[] { 0, 1 };
         if (timer.GetComponent<TimerScript>().gameTimer >= 175.0f) isSpawning = false;
