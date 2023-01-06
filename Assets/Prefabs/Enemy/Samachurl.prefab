@@ -110,6 +110,7 @@ GameObject:
   - component: {fileID: 2442232173664321908}
   - component: {fileID: 2442232173664321909}
   - component: {fileID: 2442232173664321898}
+  - component: {fileID: -6345641896946251848}
   - component: {fileID: 2442232173664321899}
   - component: {fileID: 2442232173664321896}
   - component: {fileID: 5389788971145314825}
@@ -208,6 +209,26 @@ MonoBehaviour:
   burstMark: {fileID: 0}
   enemySpawner: {fileID: 0}
   speed: 1
+--- !u!114 &-6345641896946251848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2442232173664321897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c845bdd1087b6d41b6847ebfd7be051, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillPrefab: {fileID: 1844286404719003414, guid: 253e16a539fa22445a984f01b376c42a, type: 3}
+  spawnEffect: {fileID: 1199960076709816068, guid: 4316a1b7c49a2504fa6eb803cd6263f9, type: 3}
+  distanceToPlayer: 10
+  spawnTime: 6
+  timeToSpawn: 0.5
+  skillToSpawn: 3
+  skillDelay: 1
+  circleScale: 0.12
 --- !u!50 &2442232173664321899
 Rigidbody2D:
   serializedVersion: 4

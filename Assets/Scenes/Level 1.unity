@@ -702,8 +702,8 @@ MonoBehaviour:
   - {fileID: 3697388119886545416, guid: 52c51a2b71e43814f95da8669542efde, type: 3}
   - {fileID: 6250863926950740184, guid: 6099c75709680734eb1659387bcb4301, type: 3}
   miniBossPrefabs:
-  - {fileID: 1758342681812489046, guid: 9250dce32fd53914d9485bb4b729f3c2, type: 3}
   - {fileID: 2442232173664321897, guid: 10214b86626fbbe4bae7abfe604fbd9d, type: 3}
+  - {fileID: 5271563140940898189, guid: 6f3fa868424052f419ca1eb5ee7497de, type: 3}
   bossPrefabs:
   - {fileID: 7890799533219642695, guid: 477b9deb995e34d4f9a33717a31246a2, type: 3}
   - {fileID: 8276163651426954596, guid: f9a7167fca1dca747858d20380e354ea, type: 3}
