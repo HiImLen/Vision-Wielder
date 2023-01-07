@@ -99,10 +99,10 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
     }
 
-    public void NewGame()
+    public void NewGame(int level)
     {
         newGame = true;
-        levelLoader.LoadLevel(1);
+        levelLoader.LoadLevel(level);
     }
 
     public void QuitGame()

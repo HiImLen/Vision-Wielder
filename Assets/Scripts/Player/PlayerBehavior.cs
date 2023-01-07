@@ -42,8 +42,7 @@ public class PlayerBehavior : MonoBehaviour, IDamageable
         if (currentHealth <= 0)
         {
             // Die
-            GameManager.Instance.defeatMenu.SetActive(true);
-            Time.timeScale = 0;
+            GameManager.Instance.GameOver();
         }
         yield return new WaitForSeconds(internalHitCD);
         callback(true);

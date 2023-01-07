@@ -96,4 +96,9 @@ public class TabGroup : MonoBehaviour
         int previousIndex = currentIndex > 0 ? currentIndex - 1 : 0;
         OnTabSelected(tabButtons[previousIndex]);
     }
+
+    public void OpenTab(int index)
+    {
+        OnTabSelected(tabButtons[index]);
+    }
 }
