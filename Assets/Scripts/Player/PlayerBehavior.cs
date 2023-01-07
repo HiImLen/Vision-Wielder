@@ -39,6 +39,12 @@ public class PlayerBehavior : MonoBehaviour, IDamageable
         currentHealth = Mathf.Clamp(currentHealth - damage, 0, maxHealth);
         healthBar.SetHealth(currentHealth);
         HitParticle();
+        if (currentHealth <= 0)
+        {
+            // Die
+            GameManager.Instance.defeatMenu.SetActive(true);
+            Time.timeScale = 0;
+        }
         yield return new WaitForSeconds(internalHitCD);
         callback(true);
     }

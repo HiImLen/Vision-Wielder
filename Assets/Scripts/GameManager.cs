@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public SaveManager saveManager { get; private set; }
     public GameObject menu;
     public GameObject stopMenu;
+    public GameObject defeatMenu;
+    public GameObject winMenu;
 
     public bool newGame { get; private set;}
 
@@ -59,6 +61,16 @@ public class GameManager : MonoBehaviour
         audioManager.StopMusic();
         menu.SetActive(true);
         stopMenu.SetActive(false);
+        winMenu.SetActive(false);
+        Time.timeScale = 1;
+    }
+
+        public void GoToMenuWithoutSave()
+    {
+        levelLoader.LoadLevel(0);
+        audioManager.StopMusic();
+        menu.SetActive(true);
+        defeatMenu.SetActive(false);
         Time.timeScale = 1;
     }
 
@@ -67,6 +79,24 @@ public class GameManager : MonoBehaviour
         newGame = false;
         GameSaveData.SaveData data = saveManager.LoadGameBinary();
         levelLoader.LoadLevel(data.level);
+    }
+
+    public void RestartGame()
+    {
+        levelLoader.LoadLevel(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1;
+    }
+
+    public void WinGame()
+    {
+        winMenu.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    public void GameOver()
+    {
+        defeatMenu.SetActive(true);
+        Time.timeScale = 0;
     }
 
     public void NewGame()
