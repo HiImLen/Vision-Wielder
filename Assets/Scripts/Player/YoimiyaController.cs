@@ -99,6 +99,7 @@ public class YoimiyaController : MonoBehaviour
                 {
                     if (enemy.GetComponent<YomiyaUltiMark>() != null)
                     {
+                        Destroy(enemy.GetComponent<YomiyaUltiMark>().burstMark);
                         Destroy(enemy.GetComponent<YomiyaUltiMark>());
                         // count++;
                     }

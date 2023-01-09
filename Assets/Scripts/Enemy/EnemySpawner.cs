@@ -207,13 +207,14 @@ public class EnemySpawner : MonoBehaviour
 
     public void DeleteEnemy(GameObject enemy)
     {
-        enemyList.Remove(enemy);
         YomiyaUltiMark YomiyaMark = enemy.GetComponent<YomiyaUltiMark>();
         if (YomiyaMark != null)
         {
             YomiyaMark.UseMarkSkill();
-            Destroy(enemy.GetComponent<EnemyBehavior>().burstMark);
+            Destroy(YomiyaMark.burstMark);
         }
+        
+        enemyList.Remove(enemy);
         Destroy(enemy);
     }
 

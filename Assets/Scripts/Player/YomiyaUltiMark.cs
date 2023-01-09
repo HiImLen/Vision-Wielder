@@ -11,16 +11,22 @@ public class YomiyaUltiMark : MonoBehaviour
     // The layer mask for the enemy layer
     public LayerMask enemyLayer;
 
+    public GameObject burstMark;
+    public EnemyBehavior enemyBehavior;
+    public GameObject markPrefab;
+
     // Start is called before the first frame update
     void Start()
     {
         enemyLayer = LayerMask.GetMask("Enemy");
+        enemyBehavior = GetComponent<EnemyBehavior>();
+        markPrefab = enemyBehavior.markPrefab;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        checkMark(markPrefab);
     }
 
     public void UseMarkSkill()
@@ -41,5 +47,22 @@ public class YomiyaUltiMark : MonoBehaviour
             }
         }
         // Debug.Log("Marked " + count + " enemies");
+    }
+
+    void checkMark(GameObject markPrefab)
+    {
+        if (burstMark != null)
+        {
+            burstMark.transform.position = transform.position;
+        }
+
+        if (transform.GetComponent<YomiyaUltiMark>() != null && burstMark == null)
+        {
+            burstMark = Instantiate(markPrefab, transform.position, Quaternion.identity);
+        }
+        else if (burstMark != null)
+        {
+            Destroy(burstMark);
+        }
     }
 }
