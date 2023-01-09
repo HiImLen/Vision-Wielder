@@ -10,12 +10,11 @@ public class EnemyBehavior : MonoBehaviour, IDamageable
     [SerializeField] private int _damage = 20;
     [SerializeField] private GameObject hitParticlePrefab;
     [SerializeField] private GameObject healthTextprefab;
-    [SerializeField] private GameObject markPrefab;
 
+    public GameObject markPrefab;
     public int damage { get { return _damage; } set { damage = _damage; } }
     public int maxHealth { get { return _maxHealth; } set { maxHealth = _maxHealth; } }
     public int currentHealth { get; set; }
-    public GameObject burstMark;
     
     private Transform player;
     private Rigidbody2D rigidbody2d;
@@ -43,30 +42,13 @@ public class EnemyBehavior : MonoBehaviour, IDamageable
     // Update is called once per frame
     void Update()
     {
-        checkMark();
+        
     }
 
     void FixedUpdate() // Physics update
     {
         Animation();
         MoveTowardPlayer();
-    }
-
-    void checkMark()
-    {
-        if(burstMark != null)
-        {
-            burstMark.transform.position = transform.position;
-        }
-
-        if (transform.GetComponent<YomiyaUltiMark>() != null && burstMark == null)
-        {
-            burstMark = Instantiate(markPrefab, transform.position, Quaternion.identity);
-        }
-        else if(burstMark != null)
-        {
-            Destroy(burstMark);
-        }
     }
 
     void Animation()
