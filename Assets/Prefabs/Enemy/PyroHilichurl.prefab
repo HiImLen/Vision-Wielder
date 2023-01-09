@@ -104,8 +104,6 @@ MonoBehaviour:
   _damage: 20
   hitParticlePrefab: {fileID: 8485481290728192229, guid: 4aa45d356ccb20b409d03e2a4a3da6d7, type: 3}
   healthTextprefab: {fileID: 2651226504446650823, guid: c09eb7abfabc8604aa88e483c3548ada, type: 3}
-  markPrefab: {fileID: 4319410211880046263, guid: 5ef5ea018369aa4449bf89ac696d42c8, type: 3}
-  burstMark: {fileID: 0}
   enemySpawner: {fileID: 0}
   speed: 1.5
 --- !u!50 &8316199004645047396
@@ -155,7 +153,7 @@ Animator:
   m_GameObject: {fileID: 8316199004645047398}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 61c9abfe4f0b11747afacdb10a1625e5, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0ab939c7a2b912c41a2d7e10169ef7d6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

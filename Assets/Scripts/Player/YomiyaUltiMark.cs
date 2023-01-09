@@ -6,27 +6,26 @@ using UnityEngine;
 public class YomiyaUltiMark : MonoBehaviour
 {
     // The distance at which the raycast should check for enemies
-    public float radius = 5.0f;
+    private float radius = 5.0f;
 
     // The layer mask for the enemy layer
-    public LayerMask enemyLayer;
-
+    private LayerMask enemyLayer;
+    private EnemyBehavior enemyBehavior;
     public GameObject burstMark;
-    public EnemyBehavior enemyBehavior;
-    public GameObject markPrefab;
+    private GameObject markPrefab;
 
     // Start is called before the first frame update
     void Start()
     {
         enemyLayer = LayerMask.GetMask("Enemy");
         enemyBehavior = GetComponent<EnemyBehavior>();
-        markPrefab = enemyBehavior.markPrefab;
+        markPrefab = Resources.Load<GameObject>("AimSprite");
     }
 
     // Update is called once per frame
     void Update()
     {
-        checkMark(markPrefab);
+        checkMark();
     }
 
     public void UseMarkSkill()
@@ -43,13 +42,11 @@ public class YomiyaUltiMark : MonoBehaviour
             if (hit.gameObject.GetComponent<IDamageable>() != null && hit.gameObject.GetComponent<YomiyaUltiMark>() == null)
             {
                 hit.gameObject.AddComponent<YomiyaUltiMark>();
-                // count++;
             }
         }
-        // Debug.Log("Marked " + count + " enemies");
     }
 
-    void checkMark(GameObject markPrefab)
+    void checkMark()
     {
         if (burstMark != null)
         {
@@ -59,10 +56,6 @@ public class YomiyaUltiMark : MonoBehaviour
         if (transform.GetComponent<YomiyaUltiMark>() != null && burstMark == null)
         {
             burstMark = Instantiate(markPrefab, transform.position, Quaternion.identity);
-        }
-        else if (burstMark != null)
-        {
-            Destroy(burstMark);
         }
     }
 }

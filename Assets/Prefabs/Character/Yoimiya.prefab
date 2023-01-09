@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 5235692639657811060}
   - component: {fileID: 5235692639657811067}
+  - component: {fileID: 4682392571994836369}
+  - component: {fileID: 6519074612387563599}
+  - component: {fileID: 8750969760664190320}
   - component: {fileID: 5235692639657811062}
   - component: {fileID: 5235692639657811061}
-  - component: {fileID: 6519074612387563599}
-  - component: {fileID: 4682392571994836369}
-  - component: {fileID: 8750969760664190320}
   m_Layer: 9
   m_Name: Yoimiya
   m_TagString: Player
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: ae99a3dc702894f4d9ca4728807c4549, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -89,6 +89,75 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4682392571994836369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5235692639657811066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: bbc1bb2e3f8c9464785bd50cb3e3d89c, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &6519074612387563599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5235692639657811066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00cc2a8055b1d0a419a61cc651223a98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitParticlePrefab: {fileID: 8485481290728192229, guid: 4aa45d356ccb20b409d03e2a4a3da6d7, type: 3}
+  _maxHealth: 1000
+  _damage: 50
+  internalHitCD: 0.1
+  normalAttackMultiplier: 1.059
+  skillMultiplier: 1.379
+  burstMultiplier: 1.27
+--- !u!114 &8750969760664190320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5235692639657811066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e2aa76b44d1eae4680767570b4db335, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 6285840776706621973, guid: 07b4cf7aecd58de419adface59e5539a, type: 3}
+  attackSpeed: 1
+  projectileCount: 1
+  moveSpeed: 3
+  skillCDTimer: 18
+  burstCDTimer: 15
+  skillEffectTimer: 10
+  burstEffectTimer: 10
 --- !u!50 &5235692639657811062
 Rigidbody2D:
   serializedVersion: 4
@@ -126,67 +195,3 @@ CapsuleCollider2D:
   m_Offset: {x: 0.1326834, y: 0.011707425}
   m_Size: {x: 0.7414601, y: 2.1112187}
   m_Direction: 0
---- !u!114 &6519074612387563599
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5235692639657811066}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00cc2a8055b1d0a419a61cc651223a98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitParticlePrefab: {fileID: 8485481290728192229, guid: 4aa45d356ccb20b409d03e2a4a3da6d7, type: 3}
-  _maxHealth: 1000
-  _damage: 50
-  internalHitCD: 0.1
-  normalAttackMultiplier: 0.42
-  skillMultiplier: 1.11
---- !u!114 &4682392571994836369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5235692639657811066}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: bbc1bb2e3f8c9464785bd50cb3e3d89c, type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
---- !u!114 &8750969760664190320
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5235692639657811066}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e2aa76b44d1eae4680767570b4db335, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 6285840776706621973, guid: 07b4cf7aecd58de419adface59e5539a, type: 3}
-  attackSpeed: 1
-  projectileCount: 1
-  moveSpeed: 5

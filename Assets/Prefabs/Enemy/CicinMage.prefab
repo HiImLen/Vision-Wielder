@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1758342681812489042}
   - component: {fileID: 1758342681812489043}
   - component: {fileID: 3340755362359685519}
-  - component: {fileID: 1758342681812489044}
+  - component: {fileID: 3077438455728586080}
   - component: {fileID: 1758342681812489045}
   - component: {fileID: 6777636885080620952}
   m_Layer: 7
@@ -107,7 +107,6 @@ MonoBehaviour:
   hitParticlePrefab: {fileID: 8485481290728192229, guid: 4aa45d356ccb20b409d03e2a4a3da6d7, type: 3}
   healthTextprefab: {fileID: 2651226504446650823, guid: c09eb7abfabc8604aa88e483c3548ada, type: 3}
   markPrefab: {fileID: 4319410211880046263, guid: 5ef5ea018369aa4449bf89ac696d42c8, type: 3}
-  burstMark: {fileID: 0}
   enemySpawner: {fileID: 0}
   speed: 0.75
 --- !u!114 &3340755362359685519
@@ -130,7 +129,7 @@ MonoBehaviour:
   timeToSpawn: 1.5
   enemyToSpawn: 5
   circleScale: 0.04
---- !u!50 &1758342681812489044
+--- !u!50 &3077438455728586080
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -145,7 +144,7 @@ Rigidbody2D:
   m_Mass: 0.4
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1

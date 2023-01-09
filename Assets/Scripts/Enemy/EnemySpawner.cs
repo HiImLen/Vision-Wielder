@@ -68,6 +68,7 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator SpawnFirstWave()
     {
+        SaveGame();
         isSpawning = true;
         spawnMobs = false;
         if (timer.GetComponent<TimerScript>().gameTimer >= 55.0f) isSpawning = false;
@@ -80,6 +81,7 @@ public class EnemySpawner : MonoBehaviour
     IEnumerator SpawnSecondWave()
     {
         yield return SpawnFirstWave();
+        SaveGame();
         SpawnMiniBoss(0);
         isSpawning = true;
         if (timer.GetComponent<TimerScript>().gameTimer >= 115.0f) isSpawning = false;
@@ -92,6 +94,7 @@ public class EnemySpawner : MonoBehaviour
     IEnumerator SpawnFirstBoss()
     {
         yield return SpawnSecondWave();
+        SaveGame();
         isSpawning = false;
         timer.GetComponent<TimerScript>().StopTimer();
         timer.SetActive(false);
@@ -102,6 +105,7 @@ public class EnemySpawner : MonoBehaviour
     IEnumerator SpawnThirdWave()
     {
         yield return SpawnFirstBoss();
+        SaveGame();
         timer.GetComponent<TimerScript>().ResumeTimer();
         timer.SetActive(true);
         yield return new WaitUntil(() => timer.GetComponent<TimerScript>().gameTimer >= 122.0f);
@@ -117,6 +121,7 @@ public class EnemySpawner : MonoBehaviour
     IEnumerator SpawnFourthWave()
     {
         yield return SpawnThirdWave();
+        SaveGame();
         SpawnMiniBoss(1);
         isSpawning = true;
         if (timer.GetComponent<TimerScript>().gameTimer >= 235.0f) isSpawning = false;
@@ -128,6 +133,7 @@ public class EnemySpawner : MonoBehaviour
     IEnumerator SpawnSecondBoss()
     {
         yield return SpawnFourthWave();
+        SaveGame();
         isSpawning = false;
         timer.GetComponent<TimerScript>().StopTimer();
         timer.SetActive(false);
@@ -193,7 +199,6 @@ public class EnemySpawner : MonoBehaviour
         enemyList.Add(boss);
         boss.SetActive(false);
 
-
         // Spawn the effect and destroy it after 2 seconds
         GameObject effect = Object.Instantiate(spawnEffect, spawnPosition, Quaternion.identity);
         effect.transform.localScale = new Vector3(circleScale, circleScale, 1f);
@@ -241,5 +246,14 @@ public class EnemySpawner : MonoBehaviour
             }
         }
         return closestEnemy;
+    }
+
+    void SaveGame()
+    {
+        // Save game
+        float time = timer.GetComponent<TimerScript>().gameTimer;
+        PlayerBehavior player = FindObjectOfType<PlayerBehavior>();
+        int health = player.currentHealth;
+        GameManager.Instance.saveManager.SaveGameBinary(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex, time, health);
     }
 }

@@ -69,8 +69,9 @@ public class EnemySpawn : MonoBehaviour
     IEnumerator FreezePosition()
     {
         // Freeze the position
-        rb.constraints = RigidbodyConstraints2D.FreezePosition;
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
         yield return new WaitForSeconds(timeToSpawn);
         rb.constraints = RigidbodyConstraints2D.None;
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 }

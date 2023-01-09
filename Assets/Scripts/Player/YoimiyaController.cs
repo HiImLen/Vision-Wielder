@@ -8,31 +8,23 @@ public class YoimiyaController : MonoBehaviour
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private float attackSpeed = 1.0f;
     [SerializeField] private int projectileCount = 1;
+    [SerializeField] private float moveSpeed = 3f;
+    [SerializeField] private float skillCDTimer = 18.0f;
+    [SerializeField] private float burstCDTimer = 20.0f;
+    [SerializeField] private float skillEffectTimer = 10.0f;
+    [SerializeField] private float burstEffectTimer = 10.0f;
 
-    [SerializeField] private float skillCDTimer = 18.0f; // skill cooldown timer
-    [SerializeField] private float skillEffectTimer = 10.0f; // skill effect timer
-
-    [SerializeField] private float burstCDTimer = 20.0f; // burst cooldown timer
-    [SerializeField] private float burstEffectTimer = 10.0f; // burst effect timer
-
-    private EnemySpawner enemySpawner;
-    private float elapsedTime = 0.0f;
     private PlayerBehavior playerBehavior;
-    public float moveSpeed = 5f;
+    private SpriteRenderer spriteRenderer;
+    private EnemySpawner enemySpawner;
+    private Rigidbody2D rb;
+    private Vector2 movementInput;
+    private Vector2 direction = new Vector2(1, 0);
 
-    Rigidbody2D rb;
-    Vector2 movementInput;
-    SpriteRenderer spriteRenderer;
-    Vector2 direction = new Vector2(1, 0);
-
-    float skillCD; // skill cooldown
-    bool isSkillCD = false;
-
-    float burstCD; // burst cooldown
-    bool isBurstCD = false;
-
-    float skillEffectCD; // skill effect cooldown
-    float burstEffectCD; // burst effect cooldown
+    private float skillCD, burstCD;
+    private bool isSkillCD = false, isBurstCD = false;
+    private float skillEffectCD, burstEffectCD;
+    private float elapsedTime = 0.0f;
 
     void Awake()
     {
@@ -49,10 +41,8 @@ public class YoimiyaController : MonoBehaviour
         burstEffectCD = burstEffectTimer;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        // Debug.Log("Attack speed: " + attackSpeed);
         elapsedTime += Time.deltaTime;
         if (elapsedTime >= 1 / attackSpeed)
         {
@@ -62,7 +52,31 @@ public class YoimiyaController : MonoBehaviour
                 Invoke("NormalAttack", 0.1f * i);
             }
         }
+        checkSkill();
+        checkBurst();
+    }
 
+    private void FixedUpdate()
+    {
+        if (movementInput != Vector2.zero)
+        {
+            // set isMoving to true
+        }
+        if (movementInput.x < 0)
+            spriteRenderer.flipX = true;
+        else if (movementInput.x > 0)
+            spriteRenderer.flipX = false;
+        rb.MovePosition(rb.position + movementInput * moveSpeed * Time.fixedDeltaTime);
+    }
+
+    private void NormalAttack()
+    {
+        if (enemySpawner.enemyList.Count == 0) return;
+        Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+    }
+
+    void checkSkill()
+    {
         if (isSkillCD)
         {
             skillCD -= Time.deltaTime;
@@ -75,13 +89,17 @@ public class YoimiyaController : MonoBehaviour
             if (skillEffectCD <= 0)
             {
                 skillEffectCD = skillEffectTimer;
-                attackSpeed -= playerBehavior.normalAttackMultiplier * 3;
-                playerBehavior.skillMultiplier /= 2.0f;
+                attackSpeed /= 2;
+                projectileCount = 1;
+                playerBehavior.normalAttackMultiplier /= playerBehavior.skillMultiplier;
             }
             else if (skillEffectCD < skillEffectTimer)
                 skillEffectCD -= Time.deltaTime;
         }
+    }
 
+    void checkBurst()
+    {
         if (isBurstCD)
         {
             burstCD -= Time.deltaTime;
@@ -93,7 +111,6 @@ public class YoimiyaController : MonoBehaviour
 
             if (burstEffectCD <= 0)
             {
-                // int count = 0;
                 burstEffectCD = burstEffectTimer;
                 foreach (GameObject enemy in enemySpawner.enemyList)
                 {
@@ -101,33 +118,26 @@ public class YoimiyaController : MonoBehaviour
                     {
                         Destroy(enemy.GetComponent<YomiyaUltiMark>().burstMark);
                         Destroy(enemy.GetComponent<YomiyaUltiMark>());
-                        // count++;
                     }
                 }
-                // Debug.Log("Mark Count Delete: " + count);
             }
             else if (burstEffectCD < burstEffectTimer)
                 burstEffectCD -= Time.deltaTime;
         }
     }
 
-    private void NormalAttack()
+    void OnMove(InputValue value)
     {
-        if (enemySpawner.enemyList.Count == 0) return;
-        Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-    }
-
-    void OnFixedUpdate()
-    {
-
+        movementInput = value.Get<Vector2>();
     }
 
     void OnSkill()
     {
         if (skillCD == skillCDTimer)
         {
-            attackSpeed += playerBehavior.normalAttackMultiplier * 3;
-            playerBehavior.skillMultiplier *= 2.0f;
+            attackSpeed *= 2;
+            projectileCount = 5;
+            playerBehavior.normalAttackMultiplier *= playerBehavior.skillMultiplier;
             isSkillCD = true;
             skillEffectCD -= Time.deltaTime;
         }
@@ -145,23 +155,5 @@ public class YoimiyaController : MonoBehaviour
                 isBurstCD = true;
             }
         }
-    }
-
-    private void FixedUpdate()
-    {
-        if (movementInput != Vector2.zero)
-        {
-            // set isMoving to true
-        }
-        if (movementInput.x < 0)
-            spriteRenderer.flipX = true;
-        else if (movementInput.x > 0)
-            spriteRenderer.flipX = false;
-        rb.MovePosition(rb.position + movementInput * moveSpeed * Time.fixedDeltaTime);
-    }
-
-    void OnMove(InputValue value)
-    {
-        movementInput = value.Get<Vector2>();
     }
 }

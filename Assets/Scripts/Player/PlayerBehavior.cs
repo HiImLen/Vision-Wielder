@@ -8,30 +8,28 @@ public class PlayerBehavior : MonoBehaviour, IDamageable
     [SerializeField] private int _maxHealth = 1000;
     [SerializeField] private int _damage = 5;
     [SerializeField] public float internalHitCD = 0.1f;
-    public int damage { get {return _damage;} set {damage = _damage;} }
-    public int maxHealth { get {return _maxHealth;} set {maxHealth = _maxHealth;} }
+    public int damage { get { return _damage; } set { damage = _damage; } }
+    public int maxHealth { get { return _maxHealth; } set { maxHealth = _maxHealth; } }
     public int currentHealth { get; set; }
     private HealthBar healthBar;
     public float normalAttackMultiplier = 0.42f;
     public float skillMultiplier = 1.11f;
     public float burstMultiplier = 1.12f;
 
-    void Start()
+    void Awake()
     {
         healthBar = GameObject.FindWithTag("HealthBar").GetComponent<HealthBar>();
         healthBar.SetMaxHealth(maxHealth);
-        currentHealth = maxHealth;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        // if (isInvincible)
-        // {
-        //     invincibleTimer -= Time.deltaTime;
-        //     if (invincibleTimer <= 0)
-        //         isInvincible = false;
-        // }
+        if (!GameManager.Instance.newGame)
+        {
+            GameSaveData.SaveData data = GameManager.Instance.saveManager.LoadGameBinary();
+            currentHealth = data.health;
+        }
+        else
+        {
+            currentHealth = maxHealth;
+        }
+        healthBar.SetHealth(currentHealth);
     }
 
     public IEnumerator Damaged(int damage, System.Action<bool> callback)
@@ -42,7 +40,8 @@ public class PlayerBehavior : MonoBehaviour, IDamageable
         if (currentHealth <= 0)
         {
             // Die
-            GameManager.Instance.GameOver();
+            int currentlv = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
+            GameManager.Instance.GameOver(maxHealth, 0, currentlv);
         }
         yield return new WaitForSeconds(internalHitCD);
         callback(true);

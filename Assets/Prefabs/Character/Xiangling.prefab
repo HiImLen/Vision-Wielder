@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5293271659699846834}
   - component: {fileID: 5293271659699846833}
-  - component: {fileID: 5293271659699846832}
   - component: {fileID: 1947986479057676234}
+  - component: {fileID: 5293271659699846832}
   - component: {fileID: 828078024533808037}
   - component: {fileID: 5293271659699846863}
   - component: {fileID: 5293271659699846862}
@@ -90,25 +90,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5293271659699846832
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5293271659699846861}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00cc2a8055b1d0a419a61cc651223a98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitParticlePrefab: {fileID: 8485481290728192229, guid: 4aa45d356ccb20b409d03e2a4a3da6d7, type: 3}
-  _maxHealth: 1000
-  _damage: 50
-  internalHitCD: 0.1
-  normalAttackMultiplier: 0.42
-  skillMultiplier: 1.11
-  burstMultiplier: 1.12
 --- !u!114 &1947986479057676234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,6 +180,25 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &5293271659699846832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5293271659699846861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00cc2a8055b1d0a419a61cc651223a98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitParticlePrefab: {fileID: 8485481290728192229, guid: 4aa45d356ccb20b409d03e2a4a3da6d7, type: 3}
+  _maxHealth: 1000
+  _damage: 50
+  internalHitCD: 0.1
+  normalAttackMultiplier: 0.42
+  skillMultiplier: 1.11
+  burstMultiplier: 1.12
 --- !u!114 &828078024533808037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,11 +214,11 @@ MonoBehaviour:
   projectilePrefab: {fileID: 8239885663455087720, guid: c025de370c616d046bf02b4a3d47d870, type: 3}
   attackSpeed: 1.5
   projectileCount: 1
-  goubaPrefab: {fileID: 7499152179157080215, guid: a449ce5e04913c5458bcf9789a9843aa, type: 3}
-  burstPrefab: {fileID: 932538935681277833, guid: 29668969fc634e140b3a1c15c32b34a6, type: 3}
+  moveSpeed: 3
   skillCDTimer: 12
   burstCDTimer: 20
-  moveSpeed: 3
+  goubaPrefab: {fileID: 7499152179157080215, guid: a449ce5e04913c5458bcf9789a9843aa, type: 3}
+  burstPrefab: {fileID: 932538935681277833, guid: 29668969fc634e140b3a1c15c32b34a6, type: 3}
 --- !u!50 &5293271659699846863
 Rigidbody2D:
   serializedVersion: 4

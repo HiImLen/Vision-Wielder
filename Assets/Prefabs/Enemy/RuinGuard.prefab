@@ -205,8 +205,6 @@ MonoBehaviour:
   _damage: 20
   hitParticlePrefab: {fileID: 8485481290728192229, guid: 4aa45d356ccb20b409d03e2a4a3da6d7, type: 3}
   healthTextprefab: {fileID: 2651226504446650823, guid: c09eb7abfabc8604aa88e483c3548ada, type: 3}
-  markPrefab: {fileID: 4319410211880046263, guid: 5ef5ea018369aa4449bf89ac696d42c8, type: 3}
-  burstMark: {fileID: 0}
   enemySpawner: {fileID: 0}
   speed: 1
 --- !u!114 &2500544700952071719
@@ -222,7 +220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 3023934900251845377, guid: 2c29251e2ee385949adc47aba6d74965, type: 3}
-  speed: 200
+  speed: 5
   lifeTime: 5
   fireCount: 4
   fireDelay: 0.5

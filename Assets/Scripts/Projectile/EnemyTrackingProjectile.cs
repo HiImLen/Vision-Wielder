@@ -27,8 +27,10 @@ public class EnemyTrackingProjectile : MonoBehaviour
         this.lifeTime = lifeTime;
         Destroy(gameObject, lifeTime);
 
-        // fire projectile once with no tracking
-        rigidbody2d.AddForce((targetPosition - transform.position).normalized * speed);
+        Vector2 direction = (targetPosition - transform.position).normalized;
+
+        // fire projectile once with no tracking with constant speed
+        rigidbody2d.velocity = direction * speed;
 
         //rotate the projectile to face the target
         Vector3 difference = targetPosition - transform.position;

@@ -8,26 +8,22 @@ public class XianglingController : MonoBehaviour
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private float attackSpeed = 1f;
     [SerializeField] private int projectileCount = 1;
+    [SerializeField] private float moveSpeed = 3f;
+    [SerializeField] private float skillCDTimer = 12.0f;
+    [SerializeField] private float burstCDTimer = 20.0f;
 
     [SerializeField] private GameObject goubaPrefab;
     [SerializeField] private GameObject burstPrefab;
 
-    [SerializeField] private float skillCDTimer = 12.0f; // skill cooldown timer
-    [SerializeField] private float burstCDTimer = 20.0f; // burst cooldown timer
-
+    private SpriteRenderer spriteRenderer;
     private EnemySpawner enemySpawner;
+    private Rigidbody2D rb;
+    private Vector2 movementInput;
+    private Vector2 direction = new Vector2(1, 0);
+
+    private float skillCD, burstCD;
+    private bool isSkillCD = false, isBurstCD = false;
     private float elapsedTime = 0.0f;
-    public float moveSpeed = 5f;
-    Rigidbody2D rb;
-    Vector2 movementInput;
-    SpriteRenderer spriteRenderer;
-    Vector2 direction = new Vector2(1, 0);
-
-    float skillCD; // skill cooldown
-    bool isSkillCD = false;
-
-    float burstCD; // burst cooldown
-    bool isBurstCD = false;
 
     void Awake()
     {
@@ -41,7 +37,6 @@ public class XianglingController : MonoBehaviour
         enemySpawner = GameObject.FindWithTag("EnemySpawner").GetComponent<EnemySpawner>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         elapsedTime += Time.deltaTime;
@@ -50,24 +45,8 @@ public class XianglingController : MonoBehaviour
             elapsedTime = 0.0f;
             Invoke("NormalAttack", 0.1f);
         }
-
-        if (isSkillCD) 
-        {
-            skillCD -= Time.deltaTime;
-            if (skillCD <= 0) {
-                skillCD = skillCDTimer;
-                isSkillCD = false;
-            }
-        }
-
-        if(isBurstCD) 
-        {
-            burstCD -= Time.deltaTime;
-            if (burstCD <= 0) {
-                burstCD = burstCDTimer;
-                isBurstCD = false;
-            }
-        }
+        checkSkill();
+        checkBurst();
     }
 
     private void FixedUpdate()
@@ -81,6 +60,30 @@ public class XianglingController : MonoBehaviour
         else if (movementInput.x > 0)
             spriteRenderer.flipX = false;
         rb.MovePosition(rb.position + movementInput * moveSpeed * Time.fixedDeltaTime);
+    }
+
+    private void checkSkill()
+    {
+        if (isSkillCD) 
+        {
+            skillCD -= Time.deltaTime;
+            if (skillCD <= 0) {
+                skillCD = skillCDTimer;
+                isSkillCD = false;
+            }
+        }
+    }
+
+    private void checkBurst()
+    {
+        if (isBurstCD) 
+        {
+            burstCD -= Time.deltaTime;
+            if (burstCD <= 0) {
+                burstCD = burstCDTimer;
+                isBurstCD = false;
+            }
+        }
     }
 
     void OnMove(InputValue value)
@@ -101,7 +104,6 @@ public class XianglingController : MonoBehaviour
         if (burstCD == burstCDTimer) 
         {
             GameObject burst = Instantiate(burstPrefab, transform.position, Quaternion.identity);
-            // burst.GetComponent<XianglingUltiProjectileScript>().Launch();
             isBurstCD = true;
         }
     }
