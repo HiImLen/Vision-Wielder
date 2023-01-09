@@ -245,6 +245,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3888944669348197232, guid: caf3f2759aa5e934fb1d0f7f9421f757, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3888944669348197232, guid: caf3f2759aa5e934fb1d0f7f9421f757, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NewGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 3888944669348197232, guid: caf3f2759aa5e934fb1d0f7f9421f757, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3913920330676963011, guid: caf3f2759aa5e934fb1d0f7f9421f757, type: 3}
       propertyPath: m_Camera
       value: 
@@ -625,6 +637,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5261070313676449193, guid: caf3f2759aa5e934fb1d0f7f9421f757, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5356401432268703201, guid: caf3f2759aa5e934fb1d0f7f9421f757, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -648,6 +664,18 @@ PrefabInstance:
     - target: {fileID: 5356401432268703201, guid: caf3f2759aa5e934fb1d0f7f9421f757, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5698158478797403759, guid: caf3f2759aa5e934fb1d0f7f9421f757, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5698158478797403759, guid: caf3f2759aa5e934fb1d0f7f9421f757, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NewGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 5698158478797403759, guid: caf3f2759aa5e934fb1d0f7f9421f757, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6860329794117720329, guid: caf3f2759aa5e934fb1d0f7f9421f757, type: 3}
       propertyPath: m_AnchorMax.y
@@ -677,6 +705,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1766150527}
+    - target: {fileID: 7972237007044090921, guid: caf3f2759aa5e934fb1d0f7f9421f757, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8043450864314457042, guid: caf3f2759aa5e934fb1d0f7f9421f757, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

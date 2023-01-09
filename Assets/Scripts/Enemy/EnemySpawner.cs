@@ -68,7 +68,6 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator SpawnFirstWave()
     {
-        timer.GetComponent<TimerScript>().gameTimer = 119.0f;
         isSpawning = true;
         spawnMobs = false;
         if (timer.GetComponent<TimerScript>().gameTimer >= 55.0f) isSpawning = false;
