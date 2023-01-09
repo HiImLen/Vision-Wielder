@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 8276163651426954595}
   - component: {fileID: 8276163651426954592}
   - component: {fileID: -1604796037625080682}
+  - component: {fileID: 7746385661912395221}
   - component: {fileID: 8276163651426954593}
   - component: {fileID: 6213314082218832392}
   - component: {fileID: 8276163651426954599}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Dvalin
   m_TagString: Boss
   m_Icon: {fileID: 0}
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 8276163651426954596}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -105,8 +106,25 @@ MonoBehaviour:
   hitParticlePrefab: {fileID: 8485481290728192229, guid: 4aa45d356ccb20b409d03e2a4a3da6d7, type: 3}
   healthTextprefab: {fileID: 2651226504446650823, guid: c09eb7abfabc8604aa88e483c3548ada, type: 3}
   bossHealthBar: {fileID: 1326761243008484562, guid: a8c93772fd3cd974691f82fefe3b6543, type: 3}
+  bossName: Dvalin
+  player: {fileID: 0}
+  rigidbody2d: {fileID: 0}
   enemySpawner: {fileID: 0}
   speed: 1
+--- !u!114 &7746385661912395221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8276163651426954596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a72495d367e570a409ba42a0706497fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillPrefab: {fileID: 438702825977940482, guid: 6549d1747e5ae59408d7119e244910c4, type: 3}
+  effectPrefab: {fileID: 1199960076709816068, guid: 4316a1b7c49a2504fa6eb803cd6263f9, type: 3}
 --- !u!50 &8276163651426954593
 Rigidbody2D:
   serializedVersion: 4

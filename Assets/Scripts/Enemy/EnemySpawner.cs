@@ -9,6 +9,8 @@ public class EnemySpawner : MonoBehaviour
     public float spawnRadius = 15f;
     public int mapType = 0;
     [SerializeField] Bounds bounds;
+    [SerializeField] private GameObject spawnEffect;
+    [SerializeField] private float circleScale;
     private GameObject levelManager;
     private GameObject[] enemyPrefabs;
     private float[] enemySpawnRate;
@@ -66,6 +68,7 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator SpawnFirstWave()
     {
+        timer.GetComponent<TimerScript>().gameTimer = 119.0f;
         isSpawning = true;
         spawnMobs = false;
         if (timer.GetComponent<TimerScript>().gameTimer >= 55.0f) isSpawning = false;
@@ -93,7 +96,7 @@ public class EnemySpawner : MonoBehaviour
         isSpawning = false;
         timer.GetComponent<TimerScript>().StopTimer();
         timer.SetActive(false);
-        SpawnBoss(0);
+        StartCoroutine(SpawnBoss(0));
         yield return new WaitUntil(() => enemyList.Count == 0);
     }
 
@@ -129,14 +132,14 @@ public class EnemySpawner : MonoBehaviour
         isSpawning = false;
         timer.GetComponent<TimerScript>().StopTimer();
         timer.SetActive(false);
-        SpawnBoss(1);
+        StartCoroutine(SpawnBoss(1));
         yield return new WaitUntil(() => enemyList.Count == 0);
     }
 
     IEnumerator WinGame()
     {
         yield return SpawnSecondBoss();
-        //levelManager.GetComponent<LevelManager>().WinGame();
+        GameManager.Instance.WinGame();
     }
 
     void SpawnMob(int index)
@@ -171,22 +174,35 @@ public class EnemySpawner : MonoBehaviour
     void SpawnMiniBoss(int index)
     {
         Vector3 spawnPosition;
-        spawnPosition = player.transform.position + Random.onUnitSphere * spawnRadius/2;
+        spawnPosition = player.transform.position + Random.onUnitSphere * spawnRadius / 2;
         GameObject enemy = Instantiate(miniBossPrefabs[index], spawnPosition, Quaternion.identity, transform);
         enemy.GetComponent<EnemyBehavior>().enemySpawner = this; // Set the enemySpawner of the enemy
         enemy.tag = "Enemy";
         enemyList.Add(enemy);
     }
 
-    void SpawnBoss(int index)
+    IEnumerator SpawnBoss(int index)
     {
         if (enemyList.Count > 0) DeleteAllEnemies();
         Vector3 spawnPosition;
         spawnPosition = player.transform.position + new Vector3(0, 5f, 0);
-        GameObject enemy = Instantiate(bossPrefabs[index], spawnPosition, Quaternion.identity, transform);
-        enemy.GetComponent<BossBehavior>().enemySpawner = this; // Set the enemySpawner of the enemy
-        enemy.tag = "Boss";
-        enemyList.Add(enemy);
+
+        // Spawn the boss and disable it
+        GameObject boss = Instantiate(bossPrefabs[index], spawnPosition, Quaternion.identity, transform);
+        boss.GetComponent<BossBehavior>().enemySpawner = this; // Set the enemySpawner of the enemy
+        boss.tag = "Boss";
+        enemyList.Add(boss);
+        boss.SetActive(false);
+
+
+        // Spawn the effect and destroy it after 2 seconds
+        GameObject effect = Object.Instantiate(spawnEffect, spawnPosition, Quaternion.identity);
+        effect.transform.localScale = new Vector3(circleScale, circleScale, 1f);
+        Destroy(effect, 2f);
+
+        // Wait 2 seconds before spawning the skill
+        yield return new WaitForSeconds(2f);
+        boss.SetActive(true);
     }
 
     public void DeleteEnemy(GameObject enemy)

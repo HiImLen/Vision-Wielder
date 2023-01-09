@@ -10,18 +10,18 @@ public class BossBehavior : MonoBehaviour, IDamageable
     [SerializeField] private GameObject hitParticlePrefab;
     [SerializeField] private GameObject healthTextprefab;
     [SerializeField] private GameObject bossHealthBar;
+    [SerializeField] private string bossName;
     private GameObject healthBarCanvas;
     private HealthBar healthBar;
     public int damage { get { return _damage; } set { damage = _damage; } }
     public int maxHealth { get { return _maxHealth; } set { maxHealth = _maxHealth; } }
     public int currentHealth { get; set; }
-    private Transform player;
-    private Rigidbody2D rigidbody2d;
-    private Vector2 movement;
+    public GameObject player;
+    public Rigidbody2D rigidbody2d;
     public EnemySpawner enemySpawner;
     public float speed = 1f;
-    Animator animator;
-    SpriteRenderer spriteRenderer;
+    private Animator animator;
+    private SpriteRenderer spriteRenderer;
     private bool hitAble = true;
 
     void Awake()
@@ -36,40 +36,24 @@ public class BossBehavior : MonoBehaviour, IDamageable
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindWithTag("Player").transform;
+        player = GameObject.FindWithTag("Player");
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
+        // Set the name of the boss
+        //healthBarCanvas.GetComponentInChildren<TextMeshProUGUI>().text = bossName;
 
-    }
 
-    void FixedUpdate() // Physics update
-    {
-        Animation();
-        MoveTowardPlayer();
-    }
+        // Set attack state base on the name of the boss
+        BossStateManager stateManager = GetComponent<BossStateManager>();
 
-    void Animation()
-    {
-        // Flip the enemy if the direction is left
-        if (movement.x > player.position.x)
-            //spriteRenderer.flipX = true;
-            transform.rotation = Quaternion.Euler(0, 180, 0);
-        else if (movement.x < player.position.x)
-            //spriteRenderer.flipX = false;
-            transform.rotation = Quaternion.Euler(0, 0, 0);
-    }
-
-    void MoveTowardPlayer()
-    {
-        // move toward player at constant speed
-        Vector2 position = transform.position;
-        movement = position = Vector2.MoveTowards(position, player.position, speed * Time.deltaTime);
-        rigidbody2d.MovePosition(position);
+        if (bossName == "Andrius") {
+            stateManager.attackState = new AndriusAttackState();
+        } else if (bossName == "Dvalin") {
+            stateManager.attackState = new DvalinAttackState();
+        } else if (bossName == "Ruin Hunter") {
+            stateManager.attackState = new RuinHunterAttackState();
+        }
     }
 
     void OnCollisionStay2D(Collision2D other)

@@ -15,7 +15,9 @@ public class TimerScript : MonoBehaviour
         if (!GameManager.Instance.newGame)
         {
             GameSaveData.SaveData data = GameManager.Instance.saveManager.LoadGameBinary();
+            // set game timer to closet to minute mark like 60s, 120s, 180s, etc.
             gameTimer = data.timer;
+            gameTimer = Mathf.FloorToInt(gameTimer / 60f) * 60;
         }
     }
     // Start is called before the first frame update

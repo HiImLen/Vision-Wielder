@@ -13,7 +13,7 @@ public class EnemySkillZone : MonoBehaviour
             IDamageable damageable = other.gameObject.GetComponent<IDamageable>();
             if (damageable != null)
             {
-                StartCoroutine(damageable.Damaged(Mathf.RoundToInt(enemyBehavior.damage), null));
+                StartCoroutine(damageable.Damaged(Mathf.RoundToInt(enemyBehavior.damage), (bool success) => { }));
                 GetComponent<Collider2D>().enabled = false;
             }
         }

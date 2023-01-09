@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyTrackingProjectile : MonoBehaviour
+public class RuinHunterMissle : MonoBehaviour
 {
     private float speed;
     private float lifeTime;
-    public EnemyBehavior enemyBehavior;
+    public BossBehavior bossBehavior;
     private Rigidbody2D rigidbody2d;
     Vector3 targetPosition;
 
@@ -14,12 +14,6 @@ public class EnemyTrackingProjectile : MonoBehaviour
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
     }
-
-    void Start()
-    {
-
-    }
-
     public void Launch(Vector3 targetPosition, float speed, float lifeTime)
     {
         this.targetPosition = targetPosition;
@@ -38,12 +32,12 @@ public class EnemyTrackingProjectile : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.tag == "Player")
         {
             IDamageable damageable = other.gameObject.GetComponent<IDamageable>();
             if (damageable != null)
             {
-                StartCoroutine(damageable.Damaged(enemyBehavior.damage, (bool success) => { }));
+                StartCoroutine(damageable.Damaged(bossBehavior.damage, (bool success) => { }));
                 Destroy(gameObject);
             }
         }

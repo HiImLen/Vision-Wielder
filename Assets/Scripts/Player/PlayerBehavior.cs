@@ -7,7 +7,7 @@ public class PlayerBehavior : MonoBehaviour, IDamageable
     [SerializeField] private GameObject hitParticlePrefab;
     [SerializeField] private int _maxHealth = 1000;
     [SerializeField] private int _damage = 5;
-    [SerializeField] public float internalHitCD = 2f;
+    [SerializeField] public float internalHitCD = 0.1f;
     public int damage { get {return _damage;} set {damage = _damage;} }
     public int maxHealth { get {return _maxHealth;} set {maxHealth = _maxHealth;} }
     public int currentHealth { get; set; }

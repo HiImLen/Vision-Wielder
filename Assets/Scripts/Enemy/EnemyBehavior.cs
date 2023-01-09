@@ -19,7 +19,6 @@ public class EnemyBehavior : MonoBehaviour, IDamageable
     
     private Transform player;
     private Rigidbody2D rigidbody2d;
-    private Vector2 movement;
     public EnemySpawner enemySpawner;
     public float speed = 1f;
     Animator animator;
@@ -72,10 +71,10 @@ public class EnemyBehavior : MonoBehaviour, IDamageable
     void Animation()
     {
         // Flip the enemy if the direction is left
-        if (movement.x > player.position.x)
+        if (transform.position.x > player.position.x)
             //spriteRenderer.flipX = true;
             transform.rotation = Quaternion.Euler(0, 180, 0);
-        else if (movement.x < player.position.x)
+        else if (transform.position.x < player.position.x)
             //spriteRenderer.flipX = false;
             transform.rotation = Quaternion.Euler(0, 0, 0);
     }
@@ -84,7 +83,7 @@ public class EnemyBehavior : MonoBehaviour, IDamageable
     {
         // move toward player at constant speed
         Vector2 position = transform.position;
-        movement = position = Vector2.MoveTowards(position, player.position, speed * Time.deltaTime);
+        position = Vector2.MoveTowards(position, player.position, speed * Time.deltaTime);
         rigidbody2d.MovePosition(position);
     }
 
