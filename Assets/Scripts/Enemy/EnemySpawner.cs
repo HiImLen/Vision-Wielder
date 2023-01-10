@@ -167,7 +167,7 @@ public class EnemySpawner : MonoBehaviour
                     Vector3 randomPosition = Random.onUnitSphere * spawnRadius;
                     spawnPosition = player.transform.position + randomPosition;
                     spawnPosition.x = Mathf.Clamp(spawnPosition.x, bounds.min.x, bounds.max.x);
-                    spawnPosition.z = Mathf.Clamp(spawnPosition.z, bounds.min.z, bounds.max.z);
+                    spawnPosition.y = Mathf.Clamp(spawnPosition.y, bounds.min.y, bounds.max.y);
                     break;
 
                 case 2: // bounds x
@@ -207,7 +207,7 @@ public class EnemySpawner : MonoBehaviour
                     Vector3 randomPosition = Random.onUnitSphere * spawnRadius;
                     spawnPosition = player.transform.position + randomPosition;
                     spawnPosition.x = Mathf.Clamp(spawnPosition.x, bounds.min.x, bounds.max.x);
-                    spawnPosition.z = Mathf.Clamp(spawnPosition.z, bounds.min.z, bounds.max.z);
+                    spawnPosition.y = Mathf.Clamp(spawnPosition.y, bounds.min.y, bounds.max.y);
                     break;
 
                 case 2: // bounds x

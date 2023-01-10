@@ -3282,7 +3282,7 @@ MonoBehaviour:
   mapType: 1
   bounds:
     m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 13, y: 7.5, z: 0}
+    m_Extent: {x: 13, y: 8, z: 0}
   spawnEffect: {fileID: 1199960076709816068, guid: 4316a1b7c49a2504fa6eb803cd6263f9, type: 3}
   circleScale: 0.3
 --- !u!4 &1964044422

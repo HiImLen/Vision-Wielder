@@ -9,15 +9,17 @@ public class EnemyTrackingProjectile : MonoBehaviour
     public EnemyBehavior enemyBehavior;
     private Rigidbody2D rigidbody2d;
     Vector3 targetPosition;
+    Vector2 direction;
 
     private void Awake()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
     }
 
-    void Start()
+    void FixedUpdate()
     {
-
+        Vector2 newPosition = rigidbody2d.position + direction * speed * Time.fixedDeltaTime;
+        rigidbody2d.MovePosition(newPosition);
     }
 
     public void Launch(Vector3 targetPosition, float speed, float lifeTime)
@@ -27,10 +29,7 @@ public class EnemyTrackingProjectile : MonoBehaviour
         this.lifeTime = lifeTime;
         Destroy(gameObject, lifeTime);
 
-        Vector2 direction = (targetPosition - transform.position).normalized;
-
-        // fire projectile once with no tracking with constant speed
-        rigidbody2d.velocity = direction * speed;
+        direction = (targetPosition - transform.position).normalized;
 
         //rotate the projectile to face the target
         Vector3 difference = targetPosition - transform.position;
