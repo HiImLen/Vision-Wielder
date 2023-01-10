@@ -7,9 +7,12 @@ public class TilemapScript : MonoBehaviour
 {
     // Create a new tilemap if the player move outside the bounds of the tilemap
     // This will be used to procedurally generate the tilemap
+    [SerializeField] private GameObject grassTileMapPrefab;
+    [SerializeField] private GameObject wallTileMapPrefab;
+    [SerializeField] private bool isVertical;
     private GameObject player;
     private GameObject grassTilemap;
-    [SerializeField] GameObject grassTileMapPrefab;
+    private GameObject wallTilemap;
     private Bounds bounds;
     private float offsetX, offsetY = 0;
     void Start()
@@ -18,6 +21,9 @@ public class TilemapScript : MonoBehaviour
         grassTilemap = GameObject.FindWithTag("GrassTilemap");
         grassTilemap.GetComponent<Tilemap>().CompressBounds();
         bounds = grassTilemap.GetComponent<Tilemap>().localBounds;
+
+        if (isVertical)
+            wallTilemap = GameObject.FindWithTag("WallTilemap");
     }
 
     // Update is called once per frame
@@ -51,6 +57,17 @@ public class TilemapScript : MonoBehaviour
 
             // Set the new tilemap to the grassTilemap variable
             grassTilemap = newTilemap;
+
+            
+            // Create a new wall tilemap if is vertical
+            if (isVertical)
+            {
+                GameObject newWallTilemap = Instantiate(wallTileMapPrefab, spawnPosition, Quaternion.identity, wallTilemap.transform.parent);
+                newWallTilemap.tag = "WallTilemap";
+                newWallTilemap.name = "WallTilemap";
+                Destroy(wallTilemap);
+                wallTilemap = newWallTilemap;
+            }
         }
     }
 }

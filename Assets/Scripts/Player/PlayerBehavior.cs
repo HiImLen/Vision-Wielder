@@ -41,7 +41,7 @@ public class PlayerBehavior : MonoBehaviour, IDamageable
         {
             // Die
             int currentlv = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
-            GameManager.Instance.GameOver(maxHealth, 0, currentlv);
+            GameManager.Instance.GameOver(currentlv, 0, maxHealth);
         }
         yield return new WaitForSeconds(internalHitCD);
         callback(true);

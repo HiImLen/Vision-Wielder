@@ -6,8 +6,8 @@ using UnityEngine.Tilemaps;
 public class EnemySpawner : MonoBehaviour
 {
     public List<GameObject> enemyList;
-    public float spawnRadius = 15f;
-    public int mapType = 0;
+    [SerializeField] private float spawnRadius = 15f;
+    [SerializeField] private int mapType = 0; // 0 = infinite, 1 = rectangle, 2 = vertical
     [SerializeField] Bounds bounds;
     [SerializeField] private GameObject spawnEffect;
     [SerializeField] private float circleScale;
@@ -144,7 +144,12 @@ public class EnemySpawner : MonoBehaviour
     IEnumerator WinGame()
     {
         yield return SpawnSecondBoss();
-        GameManager.Instance.WinGame();
+        timer.GetComponent<TimerScript>().ResumeTimer();
+        timer.SetActive(true);
+        yield return new WaitForSeconds(1.0f);
+        timer.GetComponent<TimerScript>().StopTimer();
+        int currentlv = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
+        GameManager.Instance.WinGame(currentlv, 0, player.GetComponent<PlayerBehavior>().maxHealth);
     }
 
     void SpawnMob(int index)
@@ -152,8 +157,33 @@ public class EnemySpawner : MonoBehaviour
         for (int i = 0; i < spawnCount; i++)
         {
             Vector3 spawnPosition = Vector3.zero;
-            if (mapType == 0)
-                spawnPosition = player.transform.position + Random.onUnitSphere * spawnRadius;
+            switch (mapType)
+            {
+                case 0: // no bounds
+                    spawnPosition = player.transform.position + Random.onUnitSphere * spawnRadius;
+                    break;
+
+                case 1: // bounds x and y
+                    Vector3 randomPosition = Random.onUnitSphere * spawnRadius;
+                    spawnPosition = player.transform.position + randomPosition;
+                    spawnPosition.x = Mathf.Clamp(spawnPosition.x, bounds.min.x, bounds.max.x);
+                    spawnPosition.z = Mathf.Clamp(spawnPosition.z, bounds.min.z, bounds.max.z);
+                    break;
+
+                case 2: // bounds x
+                    Vector3 randomPosition2 = Random.onUnitSphere * spawnRadius;
+                    spawnPosition = player.transform.position + randomPosition2;
+                    spawnPosition.x = Mathf.Clamp(spawnPosition.x, bounds.min.x, bounds.max.x);
+                    if (spawnPosition.y < player.transform.position.y)
+                    {
+                        spawnPosition.y = player.transform.position.y - spawnRadius;
+                    }
+                    else
+                    {
+                        spawnPosition.y = player.transform.position.y + spawnRadius;
+                    }
+                    break;
+            }
             GameObject enemy = Instantiate(enemyPrefabs[index], spawnPosition, Quaternion.identity, transform);
             enemy.GetComponent<EnemyBehavior>().enemySpawner = this; // Set the enemySpawner of the enemy
             enemy.tag = "Enemy";
@@ -167,8 +197,33 @@ public class EnemySpawner : MonoBehaviour
         {
             int index = indices[Random.Range(0, indices.Length)];
             Vector3 spawnPosition = Vector3.zero;
-            if (mapType == 0)
-                spawnPosition = player.transform.position + Random.onUnitSphere * spawnRadius;
+            switch (mapType)
+            {
+                case 0: // no bounds
+                    spawnPosition = player.transform.position + Random.onUnitSphere * spawnRadius;
+                    break;
+
+                case 1: // bounds x and y
+                    Vector3 randomPosition = Random.onUnitSphere * spawnRadius;
+                    spawnPosition = player.transform.position + randomPosition;
+                    spawnPosition.x = Mathf.Clamp(spawnPosition.x, bounds.min.x, bounds.max.x);
+                    spawnPosition.z = Mathf.Clamp(spawnPosition.z, bounds.min.z, bounds.max.z);
+                    break;
+
+                case 2: // bounds x
+                    Vector3 randomPosition2 = Random.onUnitSphere * spawnRadius;
+                    spawnPosition = player.transform.position + randomPosition2;
+                    spawnPosition.x = Mathf.Clamp(spawnPosition.x, bounds.min.x, bounds.max.x);
+                    if (spawnPosition.y < player.transform.position.y)
+                    {
+                        spawnPosition.y = player.transform.position.y - spawnRadius;
+                    }
+                    else
+                    {
+                        spawnPosition.y = player.transform.position.y + spawnRadius;
+                    }
+                    break;
+            }
             GameObject enemy = Instantiate(enemyPrefabs[index], spawnPosition, Quaternion.identity, transform);
             enemy.GetComponent<EnemyBehavior>().enemySpawner = this; // Set the enemySpawner of the enemy
             enemy.tag = "Enemy";
@@ -178,8 +233,34 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnMiniBoss(int index)
     {
-        Vector3 spawnPosition;
-        spawnPosition = player.transform.position + Random.onUnitSphere * spawnRadius / 2;
+        Vector3 spawnPosition = Vector3.zero;
+        switch (mapType)
+        {
+            case 0: // no bounds
+                spawnPosition = player.transform.position + Random.onUnitSphere * spawnRadius;
+                break;
+
+            case 1: // bounds x and y
+                Vector3 randomPosition = Random.onUnitSphere * spawnRadius;
+                spawnPosition = player.transform.position + randomPosition;
+                spawnPosition.x = Mathf.Clamp(spawnPosition.x, bounds.min.x, bounds.max.x);
+                spawnPosition.z = Mathf.Clamp(spawnPosition.z, bounds.min.z, bounds.max.z);
+                break;
+
+            case 2: // bounds x
+                Vector3 randomPosition2 = Random.onUnitSphere * spawnRadius;
+                spawnPosition = player.transform.position + randomPosition2;
+                spawnPosition.x = Mathf.Clamp(spawnPosition.x, bounds.min.x, bounds.max.x);
+                if (spawnPosition.y < player.transform.position.y)
+                {
+                    spawnPosition.y = player.transform.position.y - spawnRadius;
+                }
+                else
+                {
+                    spawnPosition.y = player.transform.position.y + spawnRadius;
+                }
+                break;
+        }
         GameObject enemy = Instantiate(miniBossPrefabs[index], spawnPosition, Quaternion.identity, transform);
         enemy.GetComponent<EnemyBehavior>().enemySpawner = this; // Set the enemySpawner of the enemy
         enemy.tag = "Enemy";
@@ -189,13 +270,26 @@ public class EnemySpawner : MonoBehaviour
     IEnumerator SpawnBoss(int index)
     {
         if (enemyList.Count > 0) DeleteAllEnemies();
-        Vector3 spawnPosition;
-        spawnPosition = player.transform.position + new Vector3(0, 5f, 0);
+        Vector3 spawnPosition = Vector3.zero;
+        switch (mapType)
+        {
+            case 0: // no bounds
+                spawnPosition = player.transform.position + new Vector3(0, 5f, 0);
+                break;
+
+            case 1: // bounds x and y
+                // Spawn at middle of the map
+                break;
+
+            case 2: // bounds x
+                spawnPosition = new Vector3(0, player.transform.position.y + 5f, 0);
+                break;
+        }
 
         // Spawn the boss and disable it
         GameObject boss = Instantiate(bossPrefabs[index], spawnPosition, Quaternion.identity, transform);
         boss.GetComponent<BossBehavior>().enemySpawner = this; // Set the enemySpawner of the enemy
-        boss.tag = "Boss";
+        boss.tag = "Enemy";
         enemyList.Add(boss);
         boss.SetActive(false);
 
@@ -217,7 +311,7 @@ public class EnemySpawner : MonoBehaviour
             YomiyaMark.UseMarkSkill();
             Destroy(YomiyaMark.burstMark);
         }
-        
+
         enemyList.Remove(enemy);
         Destroy(enemy);
     }

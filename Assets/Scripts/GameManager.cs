@@ -80,15 +80,16 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    public void WinGame()
+    public void WinGame(int level, int time, int health)
     {
+        saveManager.SaveGameBinary(level, time, health);
         winMenu.SetActive(true);
         Time.timeScale = 0;
     }
 
-    public void GameOver(int health, int time, int level)
+    public void GameOver(int level, int time, int health)
     {
-        saveManager.SaveGameBinary(health, time, level);
+        saveManager.SaveGameBinary(level, time, health);
         defeatMenu.SetActive(true);
         Time.timeScale = 0;
     }

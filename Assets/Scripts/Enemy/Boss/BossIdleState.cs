@@ -3,26 +3,16 @@ using UnityEngine;
 public class BossIdleState : BossBaseState
 {
     private float elapsedTime;
-    Vector2 randomDirection;
     Rigidbody2D rigidbody2d;
     float movementSpeed;
-    Vector2 oldPosition;
-    Vector2 newPosition;
+    GameObject player;
 
     public override void EnterState(BossStateManager boss)
     {
         elapsedTime = 0f;
-        randomDirection = Random.insideUnitCircle.normalized;
-        oldPosition = boss.transform.position;
-        newPosition = oldPosition + randomDirection;
         rigidbody2d = boss.GetComponent<BossBehavior>().rigidbody2d;
         movementSpeed = boss.GetComponent<BossBehavior>().speed;
-
-        // Flip the enemy if the random direction is < old position
-        if (newPosition.x < oldPosition.x)
-            boss.transform.rotation = Quaternion.Euler(0, 180, 0);
-        else if (newPosition.x > oldPosition.x)
-            boss.transform.rotation = Quaternion.Euler(0, 0, 0);
+        player = boss.GetComponent<BossBehavior>().player;
     }
 
     public override void UpdateState(BossStateManager boss)
@@ -47,11 +37,19 @@ public class BossIdleState : BossBaseState
                     break;
             }
         }
+
+        // Flip the enemy if the direction is left
+        if (player.transform.position.x < boss.transform.position.x)
+            boss.transform.rotation = Quaternion.Euler(0, 180, 0);
+        else if (player.transform.position.x > boss.transform.position.x)
+            boss.transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 
     public override void FixedUpdateState(BossStateManager boss)
     {
-        // Move the boss to the new position
-        rigidbody2d.MovePosition(rigidbody2d.position + randomDirection * movementSpeed * Time.deltaTime);
+        // Move toward player
+        Vector2 position = rigidbody2d.position;
+        position = Vector2.MoveTowards(position, player.transform.position, movementSpeed * Time.deltaTime);
+        rigidbody2d.MovePosition(position);
     }
 }

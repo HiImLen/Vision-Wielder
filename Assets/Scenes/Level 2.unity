@@ -184,7 +184,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &165000213
 GameObject:
@@ -314,7 +314,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5235692639657811060, guid: 50c73e77e9ca035459dba19d60da99d5, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5235692639657811060, guid: 50c73e77e9ca035459dba19d60da99d5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6746,6 +6746,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grassTileMapPrefab: {fileID: 336469109210218742, guid: 8f7481fa7e5bff647a65c96e72ba5dfd, type: 3}
+  wallTileMapPrefab: {fileID: 0}
+  isVertical: 0
 --- !u!156049354 &1038363830
 Grid:
   m_ObjectHideFlags: 0
@@ -6773,7 +6775,7 @@ Transform:
   - {fileID: 1973392270}
   - {fileID: 984708188}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1039929597
 GameObject:
@@ -6836,7 +6838,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1062662685
 GameObject:
@@ -7143,7 +7145,7 @@ RectTransform:
   m_Children:
   - {fileID: 987247242}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -7290,7 +7292,7 @@ RectTransform:
   m_Children:
   - {fileID: 952004987}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -7439,7 +7441,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1964044420
 GameObject:
@@ -7472,7 +7474,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyList: []
   spawnRadius: 15
-  mapType: 0
+  mapType: 1
   bounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
@@ -7491,7 +7493,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1973392269
 GameObject:
@@ -80614,7 +80616,7 @@ Transform:
   m_Children:
   - {fileID: 1011083790}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2008899621
 MonoBehaviour:

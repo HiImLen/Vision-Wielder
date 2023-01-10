@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4673761629012316056}
   - component: {fileID: 5861490546604122239}
   - component: {fileID: 1771508474255800471}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Cirlce-miniboss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 2442232173664321899}
   - component: {fileID: 2442232173664321896}
   - component: {fileID: 5389788971145314825}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Samachurl
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -205,8 +205,6 @@ MonoBehaviour:
   _damage: 20
   hitParticlePrefab: {fileID: 8485481290728192229, guid: 4aa45d356ccb20b409d03e2a4a3da6d7, type: 3}
   healthTextprefab: {fileID: 2651226504446650823, guid: c09eb7abfabc8604aa88e483c3548ada, type: 3}
-  markPrefab: {fileID: 4319410211880046263, guid: 5ef5ea018369aa4449bf89ac696d42c8, type: 3}
-  burstMark: {fileID: 0}
   enemySpawner: {fileID: 0}
   speed: 1
 --- !u!114 &-6345641896946251848

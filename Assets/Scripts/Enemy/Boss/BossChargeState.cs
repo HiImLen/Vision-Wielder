@@ -31,16 +31,13 @@ public class BossChargeState : BossBaseState
         if (elapsedTime >= 3f)
         {
             // Switch to the a random state
-            int randomState = Random.Range(0, 3);
+            int randomState = Random.Range(0, 2);
             switch (randomState)
             {
                 case 0:
-                    boss.SwitchState(boss.attackState);
-                    break;
-                case 1:
                     boss.SwitchState(boss.chargeState);
                     break;
-                case 2:
+                case 1:
                     boss.SwitchState(boss.idleState);
                     break;
             }
@@ -51,6 +48,6 @@ public class BossChargeState : BossBaseState
     {
         // Move the boss to the new position
         if (elapsedTime >= 1f)
-            rigidbody2d.MovePosition(rigidbody2d.position + direction * movementSpeed * 4f * Time.deltaTime);
+            rigidbody2d.MovePosition(rigidbody2d.position + direction * movementSpeed * 5f * Time.deltaTime);
     }
 }

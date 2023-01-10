@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6146499272268235679}
   - component: {fileID: 6146499272268235678}
   - component: {fileID: -626543072830026698}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: CryoAbyssMage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,8 +105,6 @@ MonoBehaviour:
   _damage: 20
   hitParticlePrefab: {fileID: 8485481290728192229, guid: 4aa45d356ccb20b409d03e2a4a3da6d7, type: 3}
   healthTextprefab: {fileID: 2651226504446650823, guid: c09eb7abfabc8604aa88e483c3548ada, type: 3}
-  markPrefab: {fileID: 4319410211880046263, guid: 5ef5ea018369aa4449bf89ac696d42c8, type: 3}
-  burstMark: {fileID: 0}
   enemySpawner: {fileID: 0}
   speed: 1
 --- !u!50 &6146499272268235679
@@ -177,7 +175,7 @@ GameObject:
   - component: {fileID: 9013273477450938841}
   - component: {fileID: 7061029346674480529}
   - component: {fileID: 8413826985352471328}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Cirlce-miniboss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
