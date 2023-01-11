@@ -7,9 +7,22 @@ public class DropCollectible : MonoBehaviour
     [SerializeField] private GameObject Health_Prefab;
     [SerializeField] private GameObject Bomb_Prefab;
 
+    // Start is called before the first frame update
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
     public void DropHealth()
     {
-        GameObject health = Instantiate(Health_Prefab, transform.position, Quaternion.identity);
+        Vector3 pos = new Vector3(transform.position.x - 1.0f, transform.position.y - 0.5f, transform.position.z);
+        GameObject health = Instantiate(Health_Prefab, pos, Quaternion.identity);
     }
 
     public void DropBomb()

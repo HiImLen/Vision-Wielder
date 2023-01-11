@@ -1,22 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
-public class CollectibleEXP : MonoBehaviour
+public class CollectibleBomb : MonoBehaviour
 {
-    public int amount = 300;
+    [SerializeField] private GameObject bombImpactPrefab;
 
-    // Start is called before the first frame update
     void Start()
     {
         Destroy(gameObject, 10f);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -24,7 +17,7 @@ public class CollectibleEXP : MonoBehaviour
         PlayerBehavior player = collision.GetComponent<PlayerBehavior>();
         if (player != null)
         {
-            //player.IncreaseHealth(amount);
+            Instantiate(bombImpactPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

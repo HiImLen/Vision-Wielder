@@ -199,7 +199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health_Prefab: {fileID: 7797789987855177002, guid: 064457ef3aa9e0249b954af8c5558234, type: 3}
-  Bomb_Prefab: {fileID: 0}
+  Bomb_Prefab: {fileID: 1884183677223962460, guid: 3529d21944449a948b93b25ed2c09b80, type: 3}
 --- !u!1 &5807839659866077199
 GameObject:
   m_ObjectHideFlags: 0
