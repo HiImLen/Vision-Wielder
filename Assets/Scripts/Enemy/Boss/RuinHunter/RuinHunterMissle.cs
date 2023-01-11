@@ -9,11 +9,18 @@ public class RuinHunterMissle : MonoBehaviour
     public BossBehavior bossBehavior;
     private Rigidbody2D rigidbody2d;
     Vector3 targetPosition;
+    Vector2 direction;
 
     private void Awake()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
     }
+    void FixedUpdate()
+    {
+        Vector2 newPosition = rigidbody2d.position + direction * speed * Time.fixedDeltaTime;
+        rigidbody2d.MovePosition(newPosition);
+    }
+
     public void Launch(Vector3 targetPosition, float speed, float lifeTime)
     {
         this.targetPosition = targetPosition;
@@ -21,8 +28,7 @@ public class RuinHunterMissle : MonoBehaviour
         this.lifeTime = lifeTime;
         Destroy(gameObject, lifeTime);
 
-        // fire projectile once with no tracking
-        rigidbody2d.AddForce((targetPosition - transform.position).normalized * speed);
+        direction = (targetPosition - transform.position).normalized;
 
         //rotate the projectile to face the target
         Vector3 difference = targetPosition - transform.position;

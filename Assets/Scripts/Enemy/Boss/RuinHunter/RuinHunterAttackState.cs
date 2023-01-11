@@ -16,7 +16,7 @@ public class RuinHunterAttackState : BossAttackState
     public override void EnterState(BossStateManager boss)
     {
         elapsedTime = 0f;
-        speed = 350f;
+        speed = 8f;
         lifeTime = 5f;
         player = boss.GetComponent<BossBehavior>().player;
         bossBehavior = boss.GetComponent<BossBehavior>();

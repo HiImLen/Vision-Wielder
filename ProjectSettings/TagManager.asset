@@ -16,6 +16,7 @@ TagManager:
   - WallTilemap
   - SkillsCD
   - MiniBoss
+  - Collectible
   layers:
   - Default
   - TransparentFX

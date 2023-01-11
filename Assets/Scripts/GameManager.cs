@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     public GameObject stopMenu;
     public GameObject defeatMenu;
     public GameObject winMenu;
-
+    public bool isLoading;
     public bool newGame { get; private set;}
 
     void Awake()

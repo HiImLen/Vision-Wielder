@@ -10,6 +10,7 @@ public class LevelLoader : MonoBehaviour
     
     public void LoadLevel(int index)
     {
+        GameManager.Instance.isLoading = true;
         GameManager.Instance.menu.SetActive(false);
         StartCoroutine(LoadLevelAsync(index));
     }
@@ -25,6 +26,6 @@ public class LevelLoader : MonoBehaviour
             yield return null;
         }
         loadingScreen.SetActive(false);
-        yield return null;
+        GameManager.Instance.isLoading = false;
     }
 }

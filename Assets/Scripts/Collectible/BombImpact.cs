@@ -16,10 +16,9 @@ public class BombImpact : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
-        PlayerBehavior player = collision.gameObject.GetComponent<PlayerBehavior>();
-        if (damageable != null && player == null)
+        if (damageable != null && !collision.CompareTag("Player"))
         {
-            StartCoroutine(damageable.Damaged(Mathf.RoundToInt(playerBehavior.damage * playerBehavior.normalAttackMultiplier * bombMultiplier), null));
+            StartCoroutine(damageable.Damaged(Mathf.RoundToInt(playerBehavior.damage * bombMultiplier), null));
         }
         Destroy(gameObject);
     }

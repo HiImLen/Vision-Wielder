@@ -6305,6 +6305,7 @@ MonoBehaviour:
   stopMenu: {fileID: 5052302734200123003}
   defeatMenu: {fileID: 9154131959989204187}
   winMenu: {fileID: 9064972434174559561}
+  isLoading: 0
 --- !u!1 &5052302735488966467
 GameObject:
   m_ObjectHideFlags: 0
