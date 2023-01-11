@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7890799533219642692}
   - component: {fileID: 8844860924423922754}
   - component: {fileID: 7890799533219642689}
+  - component: {fileID: 6081617393348543020}
   m_Layer: 8
   m_Name: Andrius
   m_TagString: Boss
@@ -204,3 +205,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6081617393348543020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7890799533219642695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3811be49c48791a4db5f03660ca4b601, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health_Prefab: {fileID: 7797789987855177002, guid: 064457ef3aa9e0249b954af8c5558234, type: 3}
+  Bomb_Prefab: {fileID: 0}
