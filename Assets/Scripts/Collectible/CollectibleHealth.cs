@@ -21,7 +21,11 @@ public class CollectibleHealth : MonoBehaviour
         if (player != null)
         {
             player.IncreaseHealth(amount);
+<<<<<<< Updated upstream
             // ShowHealText(amount);
+=======
+            ShowHealText(amount);
+>>>>>>> Stashed changes
             Destroy(gameObject);
         }
     }

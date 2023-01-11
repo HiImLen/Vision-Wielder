@@ -53,11 +53,19 @@ public class PlayerBehavior : MonoBehaviour, IDamageable
         Destroy(particle, 1f);
     }
 
+<<<<<<< Updated upstream
     public void OnObjectDestroy() {}
 
+=======
+>>>>>>> Stashed changes
     public void IncreaseHealth(int amount)
     {
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         healthBar.SetHealth(currentHealth);
     }
+<<<<<<< Updated upstream
+=======
+
+    public void OnObjectDestroy() { }
+>>>>>>> Stashed changes
 }
