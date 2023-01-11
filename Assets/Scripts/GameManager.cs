@@ -116,23 +116,16 @@ public class GameManager : MonoBehaviour
         switch (value)
         {
             case 0:
-                SetResolution("1920x1080");
+                Screen.SetResolution(1920, 1080, true);
                 break;
             case 1:
-                SetResolution("1600x900");
+                Screen.SetResolution(1600, 900, false);
                 break;
             case 2:
-                SetResolution("1280x720");
+                Screen.SetResolution(1280, 700, false);
                 break;
             default:
                 break;
         }
-    }
-
-    private void SetResolution(string resolution)
-    {
-        string[] res = resolution.Split('x');
-        Screen.SetResolution(int.Parse(res[0]), int.Parse(res[1]), Screen.fullScreen);
-        Debug.Log("Resolution set to " + resolution);
     }
 }
