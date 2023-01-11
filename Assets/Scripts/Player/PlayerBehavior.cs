@@ -53,5 +53,11 @@ public class PlayerBehavior : MonoBehaviour, IDamageable
         Destroy(particle, 1f);
     }
 
-    public void OnObjectDestroy() { }
+    public void OnObjectDestroy() {}
+
+    public void IncreaseHealth(int amount)
+    {
+        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+        healthBar.SetHealth(currentHealth);
+    }
 }

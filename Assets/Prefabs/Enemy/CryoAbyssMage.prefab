@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6146499272268235679}
   - component: {fileID: 6146499272268235678}
   - component: {fileID: -626543072830026698}
+  - component: {fileID: 8010890708978114427}
   m_Layer: 8
   m_Name: CryoAbyssMage
   m_TagString: Untagged
@@ -164,6 +165,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8010890708978114427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6146499272268235677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3811be49c48791a4db5f03660ca4b601, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EXP_Prefab: {fileID: 5715898876020886235, guid: 5103913044c30384bb91cccfb9d0799b, type: 3}
+  Health_Prefab: {fileID: 5715898876020886235, guid: 315e1fb028aa2d148bfce5b1c11cb41f, type: 3}
+  Magnet_Prefab: {fileID: 0}
+  Bomb_Prefab: {fileID: 0}
+  Energy_Prefab: {fileID: 0}
 --- !u!1 &7774505931076287677
 GameObject:
   m_ObjectHideFlags: 0

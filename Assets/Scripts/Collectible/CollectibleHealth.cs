@@ -6,14 +6,22 @@ using UnityEngine;
 public class CollectibleHealth : MonoBehaviour
 {
     [SerializeField] private GameObject healthTextprefab;
-    public int amount = 300;
+    private int amount = 50;
+
+    void Start()
+    {
+        // change color to red
+        GetComponent<SpriteRenderer>().color = new Color32(252, 70, 170, 255);
+        Destroy(gameObject, 10f);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         PlayerBehavior player = collision.GetComponent<PlayerBehavior>();
         if (player != null)
         {
-            //player.IncreaseHealth(amount);
-            ShowHealText(amount);
+            player.IncreaseHealth(amount);
+            // ShowHealText(amount);
             Destroy(gameObject);
         }
     }
