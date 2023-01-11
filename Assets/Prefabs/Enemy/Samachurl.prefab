@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: -7484762486852235993}
   m_Layer: 8
   m_Name: Samachurl
-  m_TagString: Enemy
+  m_TagString: MiniBoss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -297,8 +297,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3811be49c48791a4db5f03660ca4b601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EXP_Prefab: {fileID: 5715898876020886235, guid: 5103913044c30384bb91cccfb9d0799b, type: 3}
-  Health_Prefab: {fileID: 5715898876020886235, guid: 315e1fb028aa2d148bfce5b1c11cb41f, type: 3}
-  Magnet_Prefab: {fileID: 0}
+  Health_Prefab: {fileID: 7797789987855177002, guid: 064457ef3aa9e0249b954af8c5558234, type: 3}
   Bomb_Prefab: {fileID: 0}
-  Energy_Prefab: {fileID: 0}

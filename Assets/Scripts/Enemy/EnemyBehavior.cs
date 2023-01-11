@@ -94,9 +94,6 @@ public class EnemyBehavior : MonoBehaviour, IDamageable
         {
             animator.SetTrigger("Die");
             speed = 0;
-            gameObject.GetComponent<Collider2D>().enabled = false;
-            gameObject.GetComponent<DropCollectible>().DropEXP();
-            gameObject.GetComponent<DropCollectible>().DropHealth();
         }
         yield return null;
     }

@@ -24,11 +24,15 @@ public class XianglingController : MonoBehaviour
     private float skillCD, burstCD;
     private bool isSkillCD = false, isBurstCD = false;
     private float elapsedTime = 0.0f;
+    private SkillsCD skillsCD;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        skillsCD = GameObject.FindWithTag("SkillsCD").GetComponent<SkillsCD>();
+        skillsCD.skillCD = skillCDTimer;
+        skillsCD.burstCD = burstCDTimer;
     }
     void Start()
     {

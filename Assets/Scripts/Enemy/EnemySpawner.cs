@@ -263,7 +263,7 @@ public class EnemySpawner : MonoBehaviour
         }
         GameObject enemy = Instantiate(miniBossPrefabs[index], spawnPosition, Quaternion.identity, transform);
         enemy.GetComponent<EnemyBehavior>().enemySpawner = this; // Set the enemySpawner of the enemy
-        enemy.tag = "Enemy";
+        enemy.tag = "MiniBoss";
         enemyList.Add(enemy);
     }
 
@@ -289,7 +289,7 @@ public class EnemySpawner : MonoBehaviour
         // Spawn the boss and disable it
         GameObject boss = Instantiate(bossPrefabs[index], spawnPosition, Quaternion.identity, transform);
         boss.GetComponent<BossBehavior>().enemySpawner = this; // Set the enemySpawner of the enemy
-        boss.tag = "Enemy";
+        boss.tag = "Boss";
         enemyList.Add(boss);
         boss.SetActive(false);
 
