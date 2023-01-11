@@ -213,7 +213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 8239885663455087720, guid: c025de370c616d046bf02b4a3d47d870, type: 3}
   attackSpeed: 1.5
-  projectileCount: 1
+  projectileCount: 3
   moveSpeed: 3
   skillCDTimer: 12
   burstCDTimer: 20
