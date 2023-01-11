@@ -19,18 +19,32 @@ public class DropCollectible : MonoBehaviour
 
     void OnDestroy()
     {
-        if (CompareTag("MiniBoss"))
+        if (CompareTag("Boss"))
+        {
+            if (Random.Range(0, 100) < 50)
+            {
+                DropHealth();
+            }
+            else if (Random.Range(0, 100) < 50)
+            {
+                DropBomb();
+            }
+        }
+        if (CompareTag("MiniBoss") || CompareTag("Boss"))
         {
             DropHealth();
             DropBomb();
         }
-        if (Random.Range(0, 100) < 2)
+        else // If normal enemy
         {
-            DropHealth();
-        }
-        else if (Random.Range(0, 100) < 2)
-        {
-            DropBomb();
+            if (Random.Range(0, 100) < 2)
+            {
+                DropHealth();
+            }
+            else if (Random.Range(0, 100) < 2)
+            {
+                DropBomb();
+            }
         }
     }
 }
