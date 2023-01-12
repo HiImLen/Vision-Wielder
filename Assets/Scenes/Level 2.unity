@@ -364,6 +364,10 @@ PrefabInstance:
       propertyPath: levelUpCanvas
       value: 
       objectReference: {fileID: 596955114}
+    - target: {fileID: 8750969760664190320, guid: 50c73e77e9ca035459dba19d60da99d5, type: 3}
+      propertyPath: moveSpeed
+      value: 3.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50c73e77e9ca035459dba19d60da99d5, type: 3}
 --- !u!114 &303187722 stripped
