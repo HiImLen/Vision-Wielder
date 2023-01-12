@@ -108,11 +108,11 @@ public class EnemyBehavior : MonoBehaviour, IDamageable
                 }
                 else // If normal enemy
                 {
-                    if (Random.Range(0, 1000) < 2)
+                    if (Random.Range(0, 1000) < 5)
                     {
                         dc.DropHealth();
                     }
-                    else if (Random.Range(0, 1000) < 2)
+                    else if (Random.Range(0, 1000) < 5)
                     {
                         dc.DropBomb();
                     }
