@@ -166,8 +166,8 @@ MonoBehaviour:
   - {fileID: 1758342681812489046, guid: 9250dce32fd53914d9485bb4b729f3c2, type: 3}
   - {fileID: 2442232173664321897, guid: 10214b86626fbbe4bae7abfe604fbd9d, type: 3}
   bossPrefabs:
-  - {fileID: 8276163651426954596, guid: f9a7167fca1dca747858d20380e354ea, type: 3}
   - {fileID: 7890799533219642695, guid: 477b9deb995e34d4f9a33717a31246a2, type: 3}
+  - {fileID: 8276163651426954596, guid: f9a7167fca1dca747858d20380e354ea, type: 3}
   music:
   - {fileID: 8300000, guid: fc844ea5cb758ef4d9f8dd9acb512516, type: 3}
   - {fileID: 8300000, guid: 2bb4d5de96072e444bc4d4cebce1d25e, type: 3}
