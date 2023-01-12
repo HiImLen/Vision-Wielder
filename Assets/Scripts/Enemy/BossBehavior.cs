@@ -94,7 +94,7 @@ public class BossBehavior : MonoBehaviour, IDamageable
 
                 for (int i = 0; i < 20; i++)
                 {
-                    Vector3 pos = new Vector3(transform.position.x + Random.Range(-1f, 1f), transform.position.y + Random.Range(-1f, 1f), transform.position.z);
+                    Vector3 pos = new Vector3(transform.position.x + Random.Range(-2f, 2f), transform.position.y + Random.Range(-2f, 2f), transform.position.z);
                     dc.DropEXP(pos);
                 }
                 dc.DropHealth();
