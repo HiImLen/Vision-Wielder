@@ -18,30 +18,18 @@ public class SaveManager : MonoBehaviour
         saveExtension = ".fun";
         saveFile = savePath + "/" + saveName + saveExtension;
     }
-
-    public void SaveGameJson(int level, float timer, int health)
-    {
-        GameSaveData.SaveData data = new GameSaveData.SaveData();
-        data.level = level;
-        data.timer = timer;
-        data.health = health;
-        string json = JsonUtility.ToJson(data);
-        File.WriteAllText(saveFile, json);
-    }
-
-    public GameSaveData.SaveData LoadGameJson()
-    {
-        string json = File.ReadAllText(saveFile);
-        GameSaveData.SaveData data = JsonUtility.FromJson<GameSaveData.SaveData>(json);
-        return data;
-    }
     
-    public void SaveGameBinary(int level, float timer, int health)
+    public void SaveGameBinary(int level, float timer, int health, float currentExp, int playerLevel, int NALevel, int skillLevel, int burstLevel)
     {
         GameSaveData.SaveData data = new GameSaveData.SaveData();
         data.level = level;
         data.timer = timer;
         data.health = health;
+        data.currentExp = currentExp;
+        data.playerLevel = playerLevel;
+        data.NALevel = NALevel;
+        data.skillLevel = skillLevel;
+        data.burstLevel = burstLevel;
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(saveFile);
         bf.Serialize(file, data);

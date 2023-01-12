@@ -25,7 +25,7 @@ public class HealthBar : MonoBehaviour
         maxHealth = health.ToString();
         
         fill.color = gradient.Evaluate(1f);
-        if (healthText != null) healthText.text = health + " / " + health;
+        if (healthText != null) healthText.text = maxHealth + " / " + maxHealth;
     }
 
     public void SetHealth(int health)

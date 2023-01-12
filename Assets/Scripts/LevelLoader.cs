@@ -27,5 +27,6 @@ public class LevelLoader : MonoBehaviour
         }
         loadingScreen.SetActive(false);
         GameManager.Instance.isLoading = false;
+        GameManager.Instance.ClearCollectibles();
     }
 }

@@ -176,5 +176,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3811be49c48791a4db5f03660ca4b601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EXP_Prefab: {fileID: 1006746519366140689, guid: b1244ab4ddd22114ab42e06082d4fb74, type: 3}
+  EXP2_Prefab: {fileID: 7232463577160215803, guid: eefbb050ab9a59a44a361535ba74a2a7, type: 3}
+  EXP3_Prefab: {fileID: 1956617747144087307, guid: 852b039cfff64214c8deea1c757debfe, type: 3}
   Health_Prefab: {fileID: 7797789987855177002, guid: 064457ef3aa9e0249b954af8c5558234, type: 3}
   Bomb_Prefab: {fileID: 1884183677223962460, guid: 3529d21944449a948b93b25ed2c09b80, type: 3}

@@ -23,6 +23,7 @@ public class BossBehavior : MonoBehaviour, IDamageable
     private Animator animator;
     private SpriteRenderer spriteRenderer;
     private bool hitAble = true;
+    private bool isDead = false;
 
     void Awake()
     {
@@ -47,11 +48,16 @@ public class BossBehavior : MonoBehaviour, IDamageable
         // Set attack state base on the name of the boss
         BossStateManager stateManager = GetComponent<BossStateManager>();
 
-        if (bossName == "Andrius") {
+        if (bossName == "Andrius")
+        {
             stateManager.attackState = new AndriusAttackState();
-        } else if (bossName == "Dvalin") {
+        }
+        else if (bossName == "Dvalin")
+        {
             stateManager.attackState = new DvalinAttackState();
-        } else if (bossName == "Ruin Hunter") {
+        }
+        else if (bossName == "Ruin Hunter")
+        {
             stateManager.attackState = new RuinHunterAttackState();
         }
     }
@@ -80,11 +86,25 @@ public class BossBehavior : MonoBehaviour, IDamageable
         ShowDamageText(damage);
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
-        if (currentHealth <= 0) {
-            //animator.SetTrigger("Die");
-            speed = 0;
-            gameObject.GetComponent<Collider2D>().enabled = false;
-            OnObjectDestroy();
+        if (currentHealth <= 0)
+        {
+            if (!isDead)
+            {
+                DropCollectible dc = GetComponent<DropCollectible>();
+
+                for (int i = 0; i < 3; i++)
+                {
+                    dc.DropEXP();
+                }
+                dc.DropHealth();
+                dc.DropBomb();
+
+                //animator.SetTrigger("Die");
+                speed = 0;
+                gameObject.GetComponent<Collider2D>().enabled = false;
+                OnObjectDestroy();
+                isDead = true;
+            }
         }
         yield return null;
     }
@@ -94,7 +114,7 @@ public class BossBehavior : MonoBehaviour, IDamageable
         GameObject particle = Instantiate(hitParticlePrefab, transform.position, Quaternion.identity);
         Destroy(particle, 1f);
     }
-    
+
     public IEnumerator ChangeColor()
     {
         spriteRenderer.color = Color.red;

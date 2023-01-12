@@ -7,8 +7,7 @@ public class YoimiyaController : MonoBehaviour
 {
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private float attackSpeed = 1.0f;
-    [SerializeField] private int projectileCount = 3;
-    [SerializeField] private int projectileskillCount = 2;
+    [SerializeField] private int projectileCount = 1;
     [SerializeField] private float moveSpeed = 3f;
     [SerializeField] private float skillCDTimer = 18.0f;
     [SerializeField] private float burstCDTimer = 20.0f;
@@ -95,7 +94,6 @@ public class YoimiyaController : MonoBehaviour
             {
                 skillEffectCD = skillEffectTimer;
                 attackSpeed /= 2;
-                projectileCount -= projectileskillCount;
                 playerBehavior.normalAttackMultiplier /= playerBehavior.skillMultiplier;
             }
             else if (skillEffectCD < skillEffectTimer)
@@ -141,7 +139,6 @@ public class YoimiyaController : MonoBehaviour
         if (skillCD == skillCDTimer)
         {
             attackSpeed *= 2;
-            projectileCount += projectileskillCount;
             playerBehavior.normalAttackMultiplier *= playerBehavior.skillMultiplier;
             isSkillCD = true;
             skillEffectCD -= Time.deltaTime;
@@ -160,5 +157,10 @@ public class YoimiyaController : MonoBehaviour
                 isBurstCD = true;
             }
         }
+    }
+
+    public void IncreaseProjectileCount(int projectileCount)
+    {
+        this.projectileCount = projectileCount;
     }
 }

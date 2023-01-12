@@ -154,6 +154,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5052302734200122982, guid: caf3f2759aa5e934fb1d0f7f9421f757, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1766150527}
+    - target: {fileID: 5052302734200123003, guid: caf3f2759aa5e934fb1d0f7f9421f757, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5052302734246596260, guid: caf3f2759aa5e934fb1d0f7f9421f757, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -402,6 +410,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5052302735441356781, guid: caf3f2759aa5e934fb1d0f7f9421f757, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5052302735441356783, guid: caf3f2759aa5e934fb1d0f7f9421f757, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -604,6 +616,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8043450864314457042, guid: caf3f2759aa5e934fb1d0f7f9421f757, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9064972434174559561, guid: caf3f2759aa5e934fb1d0f7f9421f757, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

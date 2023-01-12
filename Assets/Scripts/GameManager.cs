@@ -42,6 +42,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void ClearCollectibles()
+    {
+        GameObject[] collectibles = GameObject.FindGameObjectsWithTag("Collectible");
+        foreach (GameObject collectible in collectibles)
+        {
+            Destroy(collectible);
+        }
+    }
+
     public void ResumeGame()
     {
         stopMenu.SetActive(false);
@@ -58,7 +67,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
     }
 
-        public void GoToMenuWithoutSave()
+    public void GoToMenuWithoutSave()
     {
         levelLoader.LoadLevel(0);
         audioManager.StopMusic();
@@ -80,16 +89,16 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    public void WinGame(int level, int time, int health)
+    public void WinGame(int level, int time, int health, float currentExp, int playerLevel, int NALevel, int skillLevel, int burstLevel)
     {
-        saveManager.SaveGameBinary(level, time, health);
+        saveManager.SaveGameBinary(level, time, health, currentExp, playerLevel, NALevel, skillLevel, burstLevel);
         winMenu.SetActive(true);
         Time.timeScale = 0;
     }
 
-    public void GameOver(int level, int time, int health)
+    public void GameOver(int level, int time, int health, float currentExp, int playerLevel, int NALevel, int skillLevel, int burstLevel)
     {
-        saveManager.SaveGameBinary(level, time, health);
+        saveManager.SaveGameBinary(level, time, health, currentExp, playerLevel, NALevel, skillLevel, burstLevel);
         defeatMenu.SetActive(true);
         Time.timeScale = 0;
     }

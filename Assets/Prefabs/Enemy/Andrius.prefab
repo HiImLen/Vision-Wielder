@@ -102,8 +102,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb02b7ca6cc91ab47a56285a37690ffa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 5000
-  _damage: 20
+  _maxHealth: 10000
+  _damage: 50
   hitParticlePrefab: {fileID: 8485481290728192229, guid: 4aa45d356ccb20b409d03e2a4a3da6d7, type: 3}
   healthTextprefab: {fileID: 2651226504446650823, guid: c09eb7abfabc8604aa88e483c3548ada, type: 3}
   bossHealthBar: {fileID: 1326761243008484562, guid: a8c93772fd3cd974691f82fefe3b6543, type: 3}
@@ -217,5 +217,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3811be49c48791a4db5f03660ca4b601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EXP_Prefab: {fileID: 0}
+  EXP2_Prefab: {fileID: 0}
+  EXP3_Prefab: {fileID: 1956617747144087307, guid: 852b039cfff64214c8deea1c757debfe, type: 3}
   Health_Prefab: {fileID: 7797789987855177002, guid: 064457ef3aa9e0249b954af8c5558234, type: 3}
   Bomb_Prefab: {fileID: 1884183677223962460, guid: 3529d21944449a948b93b25ed2c09b80, type: 3}

@@ -6,7 +6,8 @@ public class XianglingUltiProjectileScript : MonoBehaviour
 {
     [SerializeField] private float lifeTime = 12.0f;
 
-    private float angularSpeed, rotationRadius;
+    public float angularSpeed;
+    private float rotationRadius;
     private PlayerBehavior playerBehavior;
     private Rigidbody2D rigidbody2d;
     private Transform rotationCenter;
@@ -23,7 +24,7 @@ public class XianglingUltiProjectileScript : MonoBehaviour
     {
         playerBehavior = GameObject.FindWithTag("Player").GetComponent<PlayerBehavior>();
         rotationCenter = GameObject.FindWithTag("Player").GetComponent<Transform>();
-        angularSpeed = -4.5f;
+        angularSpeed = playerBehavior.xianglingBurstAngularSpeed;
         rotationRadius = 3.0f;
         posX = posY = angle = 0f;
         Destroy(gameObject, lifeTime);
@@ -40,7 +41,7 @@ public class XianglingUltiProjectileScript : MonoBehaviour
         posX = rotationCenter.position.x + Mathf.Cos(angle) * rotationRadius;
         posY = rotationCenter.position.y + Mathf.Sin(angle) * rotationRadius;
         transform.position = new Vector2(posX, posY);
-        angle = angle + Time.deltaTime * angularSpeed;
+        angle = angle + Time.deltaTime * -angularSpeed;
         // Debug.Log("posX: " + posX + " posY: " + posY);
         // Debug.Log("angle: " + angle);
         // Debug.Log("angularSpeed: " + angularSpeed);

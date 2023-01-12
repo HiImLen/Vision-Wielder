@@ -17,6 +17,10 @@ TagManager:
   - SkillsCD
   - MiniBoss
   - Collectible
+  - EXPBar
+  - NAButtion
+  - SkillButton
+  - BurstButton
   layers:
   - Default
   - TransparentFX

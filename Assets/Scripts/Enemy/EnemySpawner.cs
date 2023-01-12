@@ -149,7 +149,7 @@ public class EnemySpawner : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         timer.GetComponent<TimerScript>().StopTimer();
         int currentlv = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
-        GameManager.Instance.WinGame(currentlv, 0, player.GetComponent<PlayerBehavior>().maxHealth);
+        GameManager.Instance.WinGame(currentlv, 0, player.GetComponent<PlayerBehavior>().maxHealth, 0, 1, 1, 1, 1);
     }
 
     void SpawnMob(int index)
@@ -346,8 +346,14 @@ public class EnemySpawner : MonoBehaviour
     {
         // Save game
         float time = timer.GetComponent<TimerScript>().gameTimer;
-        PlayerBehavior player = FindObjectOfType<PlayerBehavior>();
-        int health = player.currentHealth;
-        GameManager.Instance.saveManager.SaveGameBinary(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex, time, health);
+        PlayerBehavior playerBehavior = player.GetComponent<PlayerBehavior>();
+        int health = playerBehavior.currentHealth;
+        int currentlv = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
+        float currentExp = playerBehavior.CurrentExp;
+        int playerLevel = playerBehavior.CurrentLevel;
+        int NALevel = playerBehavior.naLevel;
+        int SkillLevel = playerBehavior.skillLevel;
+        int BurstLevel = playerBehavior.burstLevel;
+        GameManager.Instance.saveManager.SaveGameBinary(currentlv, time, health, currentExp, playerLevel, NALevel, SkillLevel, BurstLevel);
     }
 }

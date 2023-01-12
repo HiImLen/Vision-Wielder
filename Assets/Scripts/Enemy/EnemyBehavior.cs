@@ -13,7 +13,7 @@ public class EnemyBehavior : MonoBehaviour, IDamageable
     public int damage { get { return _damage; } set { damage = _damage; } }
     public int maxHealth { get { return _maxHealth; } set { maxHealth = _maxHealth; } }
     public int currentHealth { get; set; }
-    
+
     private Transform player;
     private Rigidbody2D rigidbody2d;
     public EnemySpawner enemySpawner;
@@ -21,6 +21,7 @@ public class EnemyBehavior : MonoBehaviour, IDamageable
     Animator animator;
     SpriteRenderer spriteRenderer;
     private bool hitAble = true;
+    private bool isDead = false;
 
     void Awake()
     {
@@ -39,7 +40,7 @@ public class EnemyBehavior : MonoBehaviour, IDamageable
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void FixedUpdate() // Physics update
@@ -92,8 +93,35 @@ public class EnemyBehavior : MonoBehaviour, IDamageable
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
-            animator.SetTrigger("Die");
-            speed = 0;
+            if (!isDead)
+            {
+                DropCollectible dc = GetComponent<DropCollectible>();
+
+                if (CompareTag("MiniBoss"))
+                {
+                    for (int i = 0; i < 3; i++)
+                    {
+                        dc.DropEXP();
+                    }
+                    dc.DropHealth();
+                    dc.DropBomb();
+                }
+                else // If normal enemy
+                {
+                    if (Random.Range(0, 1000) < 2)
+                    {
+                        dc.DropHealth();
+                    }
+                    else if (Random.Range(0, 1000) < 2)
+                    {
+                        dc.DropBomb();
+                    }
+                    else dc.DropEXP();
+                }
+                animator.SetTrigger("Die");
+                speed = 0;
+                isDead = true;
+            }
         }
         yield return null;
     }

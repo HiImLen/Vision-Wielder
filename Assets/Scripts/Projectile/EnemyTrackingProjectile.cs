@@ -39,13 +39,13 @@ public class EnemyTrackingProjectile : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.tag == "Player")
         {
             IDamageable damageable = other.gameObject.GetComponent<IDamageable>();
             if (damageable != null)
             {
-                StartCoroutine(damageable.Damaged(enemyBehavior.damage, (bool success) => { }));
                 Destroy(gameObject);
+                StartCoroutine(damageable.Damaged(enemyBehavior.damage, (bool success) => { }));
             }
         }
     }

@@ -131,4 +131,9 @@ public class XianglingController : MonoBehaviour
             swordProjectile.GetComponent<SwordProjectileScript>().Launch(mousePosition);
         }
     }
+
+    public void IncreaseProjectileCount(int projectileCount)
+    {
+        this.projectileCount = projectileCount;
+    }
 }
