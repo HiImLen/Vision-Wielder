@@ -17,7 +17,7 @@ public class BowProjectileScript : MonoBehaviour
     bool dicrectionUp;
     private void Awake()
     {
-        rigidbody2d = GetComponent<Rigidbody2D>();        
+        rigidbody2d = GetComponent<Rigidbody2D>();
     }
 
     private void Start()
@@ -74,17 +74,9 @@ public class BowProjectileScript : MonoBehaviour
     private void OnCollisionStay2D(Collision2D other)
     {
         IDamageable damageable = other.gameObject.GetComponent<IDamageable>();
-        YomiyaUltiMark mark = other.gameObject.GetComponent<YomiyaUltiMark>();
         if (damageable != null)
         {
-            if (mark != null)
-            {
-                StartCoroutine(damageable.Damaged(Mathf.RoundToInt(playerBehavior.damage * playerBehavior.normalAttackMultiplier * playerBehavior.burstMultiplier), null));
-            }
-            else
-            {
-                StartCoroutine(damageable.Damaged(Mathf.RoundToInt(playerBehavior.damage * playerBehavior.normalAttackMultiplier), null));
-            }
+            StartCoroutine(damageable.Damaged(Mathf.RoundToInt(playerBehavior.damage * playerBehavior.normalAttackMultiplier), null));
             Destroy(gameObject);
         }
     }
