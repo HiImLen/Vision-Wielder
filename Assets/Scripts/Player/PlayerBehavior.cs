@@ -93,24 +93,29 @@ public class PlayerBehavior : MonoBehaviour, IDamageable
         levelUpCanvas.SetActive(false);
     }
 
-    public void LevelUp()
+    IEnumerator LevelUp()
     {
-        _currentLevel++;
-        _currentExp -= _neededExp;
-        _neededExp = Mathf.Pow((_currentLevel / 0.1f), 2);
-        expBar.SetEXP(_currentExp, _neededExp, _currentLevel);
-        levelUpCanvas.SetActive(true);
-        Time.timeScale = 0;
+        while (_currentExp >= _neededExp && _currentLevel != 13)
+        {
+            _currentLevel++;
+            _currentExp -= _neededExp;
+            _neededExp = Mathf.Pow((_currentLevel / 0.1f), 2);
+            expBar.SetEXP(_currentExp, _neededExp, _currentLevel);
+            levelUpCanvas.SetActive(true);
+            Time.timeScale = 0;
+            yield return new WaitUntil(() => _currentLevel == (NALevel + SkillLevel + BurstLevel) - 2);
+        }
+        levelUpCanvas.SetActive(false);
+        Time.timeScale = 1;
     }
+
 
     public void AddExp(float exp)
     {
         _currentExp += exp;
-        while (_currentExp >= _neededExp)
+        if (_currentExp >= _neededExp)
         {
-            if (_currentLevel == 13)
-                return;
-            LevelUp();
+            StartCoroutine(LevelUp());
         }
         expBar.SetEXP(_currentExp, _neededExp, _currentLevel);
     }
@@ -132,8 +137,6 @@ public class PlayerBehavior : MonoBehaviour, IDamageable
             YoimiyaController yoimiyaController = GetComponent<YoimiyaController>();
             yoimiyaController.IncreaseProjectileCount(NALevel);
         }
-        levelUpCanvas.SetActive(false);
-        Time.timeScale = 1;
     }
 
     public void UpgradeSkill(string character)
@@ -149,8 +152,6 @@ public class PlayerBehavior : MonoBehaviour, IDamageable
         {
             skillMultiplier = YoimiyaSkillMultiplier[SkillLevel - 1];
         }
-        levelUpCanvas.SetActive(false);
-        Time.timeScale = 1;
     }
 
     public void UpgradeBurst(string character)
@@ -167,8 +168,6 @@ public class PlayerBehavior : MonoBehaviour, IDamageable
         {
             burstMultiplier = YoimiyaBurstMultiplier[BurstLevel - 1];
         }
-        levelUpCanvas.SetActive(false);
-        Time.timeScale = 1;
     }
 
     public IEnumerator Damaged(int damage, System.Action<bool> callback)
