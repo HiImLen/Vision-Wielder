@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7797789987855177001}
   - component: {fileID: 7797789987855177014}
   - component: {fileID: -6563065563349207765}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Ham
   m_TagString: Collectible
   m_Icon: {fileID: 0}
