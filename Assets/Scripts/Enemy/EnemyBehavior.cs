@@ -99,9 +99,10 @@ public class EnemyBehavior : MonoBehaviour, IDamageable
 
                 if (CompareTag("MiniBoss"))
                 {
-                    for (int i = 0; i < 3; i++)
+                    for (int i = 0; i < 10; i++)
                     {
-                        dc.DropEXP();
+                        Vector3 pos = new Vector3(transform.position.x + Random.Range(-1f, 1f), transform.position.y + Random.Range(-1f, 1f), transform.position.z);
+                        dc.DropEXP(pos);
                     }
                     dc.DropHealth();
                     dc.DropBomb();

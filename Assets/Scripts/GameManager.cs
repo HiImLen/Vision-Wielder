@@ -13,7 +13,6 @@ public class GameManager : MonoBehaviour
     public GameObject stopMenu;
     public GameObject defeatMenu;
     public GameObject winMenu;
-    public bool isLoading;
     public bool newGame { get; private set;}
 
     void Awake()
@@ -39,15 +38,6 @@ public class GameManager : MonoBehaviour
         {
             stopMenu.SetActive(true);
             Time.timeScale = 0;
-        }
-    }
-
-    public void ClearCollectibles()
-    {
-        GameObject[] collectibles = GameObject.FindGameObjectsWithTag("Collectible");
-        foreach (GameObject collectible in collectibles)
-        {
-            Destroy(collectible);
         }
     }
 

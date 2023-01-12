@@ -15,6 +15,7 @@ public class PlayerBehavior : MonoBehaviour, IDamageable
     public int currentHealth { get; set; }
     private HealthBar healthBar;
     private EXPBarScript expBar;
+    private GameObject timer;
     public float normalAttackMultiplier = 0.42f;
     public float skillMultiplier = 1.11f;
     public float burstMultiplier = 1.12f;
@@ -45,6 +46,7 @@ public class PlayerBehavior : MonoBehaviour, IDamageable
     {
         healthBar = GameObject.FindWithTag("HealthBar").GetComponent<HealthBar>();
         expBar = GameObject.FindWithTag("EXPBar").GetComponent<EXPBarScript>();
+        timer = GameObject.FindWithTag("Timer");
         healthBar.SetMaxHealth(maxHealth);
         if (!GameManager.Instance.newGame)
         {
@@ -178,6 +180,7 @@ public class PlayerBehavior : MonoBehaviour, IDamageable
         {
             // Die
             int currentlv = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
+            timer.SetActive(true);
             GameManager.Instance.GameOver(currentlv, 0, maxHealth, 0f, 1, 1, 1, 1);
         }
         yield return new WaitForSeconds(internalHitCD);

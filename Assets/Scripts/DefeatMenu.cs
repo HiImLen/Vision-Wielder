@@ -14,7 +14,7 @@ public class DefeatMenu : MonoBehaviour
     {
         if (timeText != null && levelText != null)
         {
-            TimerScript timer = FindObjectOfType<TimerScript>();
+            TimerScript timer = GameObject.FindWithTag("Timer").GetComponent<TimerScript>();
             timeSpan = TimeSpan.FromSeconds(timer.gameTimer);
             timeText.text = timeSpan.ToString(@"mm\:ss");
             levelText.text = "Level " + UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
