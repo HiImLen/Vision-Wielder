@@ -106,6 +106,7 @@ public class EnemyBehavior : MonoBehaviour, IDamageable
                     }
                     dc.DropHealth();
                     dc.DropBomb();
+                    dc.DropMagnet();
                 }
                 else // If normal enemy
                 {
@@ -116,6 +117,10 @@ public class EnemyBehavior : MonoBehaviour, IDamageable
                     else if (Random.Range(0, 1000) < 5)
                     {
                         dc.DropBomb();
+                    }
+                    else if (Random.Range(0, 1000) < 5)
+                    {
+                        dc.DropMagnet();
                     }
                     else dc.DropEXP();
                 }

@@ -8,6 +8,7 @@ public class DropCollectible : MonoBehaviour
     [SerializeField] private GameObject EXP3_Prefab;
     [SerializeField] private GameObject Health_Prefab;
     [SerializeField] private GameObject Bomb_Prefab;
+    [SerializeField] private GameObject Magnet_Prefab;
 
     public void DropEXP()
     {
@@ -178,5 +179,11 @@ public class DropCollectible : MonoBehaviour
     {
         Vector3 pos = new Vector3(transform.position.x + Random.Range(-1f, 1f), transform.position.y + Random.Range(-1f, 1f), transform.position.z);
         GameObject bomb = Instantiate(Bomb_Prefab, pos, Quaternion.identity);
+    }
+
+    public void DropMagnet()
+    {
+        Vector3 pos = new Vector3(transform.position.x + Random.Range(-1f, 1f), transform.position.y + Random.Range(-1f, 1f), transform.position.z);
+        GameObject magnet = Instantiate(Magnet_Prefab, pos, Quaternion.identity);
     }
 }

@@ -99,6 +99,7 @@ public class BossBehavior : MonoBehaviour, IDamageable
                 }
                 dc.DropHealth();
                 dc.DropBomb();
+                dc.DropMagnet();
 
                 //animator.SetTrigger("Die");
                 speed = 0;

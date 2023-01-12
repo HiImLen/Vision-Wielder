@@ -222,3 +222,4 @@ MonoBehaviour:
   EXP3_Prefab: {fileID: 1956617747144087307, guid: 852b039cfff64214c8deea1c757debfe, type: 3}
   Health_Prefab: {fileID: 7797789987855177002, guid: 064457ef3aa9e0249b954af8c5558234, type: 3}
   Bomb_Prefab: {fileID: 1884183677223962460, guid: 3529d21944449a948b93b25ed2c09b80, type: 3}
+  Magnet_Prefab: {fileID: 7271247557179736360, guid: b2e1f5abda6013e499c0e1127815f4ca, type: 3}
