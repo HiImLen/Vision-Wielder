@@ -168,7 +168,6 @@ public class DropCollectible : MonoBehaviour
         }
     }
 
-
     public void DropHealth()
     {
         Vector3 pos = new Vector3(transform.position.x + Random.Range(-1f, 1f), transform.position.y + Random.Range(-1f, 1f), transform.position.z);
